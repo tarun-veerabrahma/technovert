@@ -1,9 +1,7 @@
 body {
 	margin: 0;
-	padding: 0;
 }
 .tnav {
-	margin: 0;
 	background-color: rgb(51, 51, 51);
 	overflow: hidden;
 	padding-left: 10px;
@@ -35,33 +33,33 @@ body {
 }
 
 .hd {
-	margin: 0;
 	background-color: rgb(51,153,204);
 	font-family: "Lucida Console","Courier New", monospace;
 	height: 88px;
 }
+
 h1{
 	margin: 0;
 	float: left;
-	padding: 20px 15px 20px 15px;
+	padding: 20px 15px;
 	font-size: 48px;
 	font-weight: 180;
 	color: white;
 }
+
 .nrm {
 	padding: 30px 50px;
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 .nrm div.news{
-	margin: 0;
 	border: 1px solid black;
-	padding: 0px 10px 10px 10px;
+	padding: 10px;
 	width: fit-content;
 }
 
 .nrm div.news h2{
 	margin: 0;
-	padding-top: 10px;
 }
 
 .nrm div.news ul {
@@ -74,5 +72,5 @@ h1{
 }
 
 .nrm div.cnt {
-	max-width: 1200px;
+	max-width: 1150px;
 }
