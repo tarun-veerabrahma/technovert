@@ -4,17 +4,15 @@ body {
 .tnav {
 	background-color: rgb(51, 51, 51);
 	overflow: hidden;
-	padding: 0px 10px;
-
+	padding: 0px 20px;
 }
 
 .tnav button {
-
 	float: left;
 	color: #fffff0;
 	font: status-bar;
 	text-align: center;
-	padding: 14px 14px;
+	padding: 10px;
 	font-size: 18px;
 	font-weight: bold;
 	background-color: inherit;
@@ -23,53 +21,55 @@ body {
 
 .tnav img.rig {
 	float: right;
-	padding: 14px 14px;
-	border-radius: 20px;
+	padding: 10px;
+	border-radius: 15px;
 }
 
 .tnav button.active {
-	font-weight: 800;
+	color: #ffffff;
 }
 
 .hd {
 	background-color: rgb(51,153,204);
-	font-family: "Lucida Console","Courier New", monospace;
-	height: 88px;
+	height: 100px;
+	font-family: Century Gothic;
 }
 
 h1{
 	margin: 0;
 	float: left;
-	padding: 20px 15px;
+	padding: 20px 30px;
 	font-size: 48px;
-	font-weight: 180;
+	font-weight: 100;
 	color: white;
 }
 
-.nrm {
+.page {
 	padding: 30px 50px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-.nrm div.news{
-	border: 1px solid black;
+.page div.news{
+	border: 1px solid #000007;
 	padding: 10px;
+	font-size: 13.64px;
 	width: fit-content;
 }
 
-.nrm div.news h2{
+.page div.news h2{
 	margin: 0;
 }
 
-.nrm div.news ul {
+.page div.news ul {
 	margin: 0;
 	padding: 5px 15px;
 }
 
-.nrm div.news ul li{
+.page div.news ul li{
 	padding: 5px 10px;
 }
 
-.nrm div.cnt {
-	max-width: 1150px;
+.page div.content {
+	font-size: 13.64px;
+	max-width: 1001px;
 }
