@@ -17,6 +17,7 @@ body {
 	font-weight: bold;
 	background-color: inherit;
 	border: none;
+	background-color: rgb(51, 51, 51);
 }
 
 .tnav img.rig {
@@ -26,16 +27,17 @@ body {
 }
 
 .tnav button.active {
-	color: #ffffff;
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 5px solid white;
 }
-
 .hd {
 	background-color: rgb(51,153,204);
 	height: 100px;
 	font-family: Century Gothic;
 }
 
-h1{
+.hd h1{
 	margin: 0;
 	float: left;
 	padding: 20px 30px;
@@ -50,7 +52,7 @@ h1{
 }
 
 .page div.news{
-	border: 1px solid #D0D0D0;
+	border: 1px solid #D3D3D3;
 	padding: 10px;
 	font-size: 13.64px;
 	width: fit-content;
@@ -70,6 +72,74 @@ h1{
 }
 
 .page div.content {
-	font-size: 13.64px;
+	font-size: 14px;
 	max-width: 1001px;
+}
+.hide {
+	display: none;
+}
+.careers {
+	margin: 5px 20px 0px 20px;
+}
+.content{
+	margin: 0;
+	color: black;
+	font-family: Century Gothic;
+}
+
+.btn{
+	font-size: 16px;
+	padding: 7px 30px 7px 15px;
+	background-color: rgb(238, 238, 238);
+	border: 1px solid rgb(153, 153, 153);
+	border-radius: 2px;
+}
+
+.careers .careerForm .table1{
+	margin: 15px 15px 0px 15px;
+}
+.careers .careerForm .table1 tr td input{
+	padding: 8px;
+}
+.careers .careerForm .table1 tr td{
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.contact .contactForm .table1{
+	margin: 15px 15px 0px 15px;
+}
+.contact .contactForm .table1 tr td input,select{
+	padding: 4px;
+	width: 260px;
+    height: 41px;
+    margin: 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.contact .contactForm .table1 .contactRadio {
+	height: auto;
+	width: auto;
+}
+
+.contact .contactForm .table1 tr td{
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.required,.errorMsg {
+	color: red;
+}
+.ErrorMsg {
+	color: red;
+	font-size: 24;
+	font-weight: bold;
+	margin: 5px;
+}
+.contact .button {
+	padding: 8px 20px;
+	font-size: 16px;
+	font-weight: bold;
+
 }
