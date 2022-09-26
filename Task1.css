@@ -95,7 +95,7 @@ body {
 	font-family: Century Gothic;
 }
 
-.btn{
+.careers .btn{
 	font-size: 16px;
 	padding: 7px 30px 7px 15px;
 	background-color: rgb(238, 238, 238);
@@ -136,7 +136,7 @@ body {
 	vertical-align: middle;
 }
 
-.contact .required,.errorMsg {
+.contact .required,.errorMsg,.validation {
 	color: red;
 }
 .ErrorMsg {
@@ -150,4 +150,21 @@ body {
 	font-size: 16px;
 	font-weight: bold;
 
+}
+
+.contact .label{
+	font-weight: bold;
+}
+
+.careers .label{
+	font-weight: bold;
+}
+
+.careers .submitBtn{
+	font-size: 16px;
+	padding: 7px 30px 7px 15px;
+	font-weight: bold;
+	background-color: rgb(238, 238, 238);
+	border: 1px solid rgb(153, 153, 153);
+	border-radius: 2px;
 }
