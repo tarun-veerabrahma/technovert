@@ -66,19 +66,19 @@
 		<form class="careerForm" name="careerForm">
 			<table class="table1">
 				<tr>
-					<td class="label"><b>Name</b></td>
+					<td class="label">Name</td>
 					<td><input type="text" class="required" name="name"></td>
 				</tr>
 				<tr>
-					<td class="label"><b>Email</b></td>
+					<td class="label">Email</td>
 					<td><input type="Email" class="required" name="email"></td>
 				</tr>
 				<tr>
-					<td class="label"><b>Desired Role</b></td>
+					<td class="label">Desired Role</td>
 					<td><input type="text" class="required" name="role"></td>
 				</tr>
 				<tr>
-					<td class="label"><b>Upload Resume</b></td>
+					<td class="label">Upload Resume</td>
 					<td>
 						<input type="text" class="required" id="filename" name="txt" readonly> &ensp; 
 						<label for="files" class='btn'><b>Browse..</b></label>
@@ -88,8 +88,7 @@
 				<tr>
 					<td></td>
 					<td>
-						<label for="submit" class="btn"><b>Submit</b></label>
-						<input type="button" id="submit" style="visibility: hidden;" name="submit">
+						<button class="submitBtn" id="submit" name="submit">Submit</button>
 					</td>
 				</tr>
 			</table>	
@@ -107,11 +106,11 @@
 		<form class="contactForm" name="contactForm" id="contactForm">
 			<table class="table1">
 				<tr>
-					<td><b>My Name:</b></td>
+					<td class="label">My Name:</td>
 					<td><input type="text" name="myName" class="contactInput Required"><span class="required">*</span><span id='error0' class="errorMsg hide">Name is required</span></td>
 				</tr>
 				<tr>
-					<td><b>My Gender:</b></td>
+					<td class="label">My Gender:</td>
 					<td>
 						<input type="radio" id="Male" class="contactRadio" name="gender" value="Male">
 						<label for="Male">Male</label><br>
@@ -120,25 +119,25 @@
 					</td>
 				</tr>
 				<tr>
-					<td><b>My Email Address:</b></td>
+					<td class="label">My Email Address:</td>
 					<td><input type="email" name="meMail" onblur="validateMail(this)" class="contactInput Required"><span class="required">*</span><span id="error1" class="errorMsg hide">MailId is required</span><span class="validation"></span></td>
 				</tr>
 				<tr>
-					<td><b>My Telephone Number:</b></td>
+					<td class="label">My Telephone Number:</td>
 					<td><input type="tel" name="telphone" class="contactInput"></td>
 				</tr>
 				<tr>
-					<td><b>My Organization Name:</b></td>
+					<td class="label">My Organization Name:</td>
 					<td><input type="text" name="org" class="contactInput Required"><span class="required">*</span><span id="error2" class="errorMsg hide">Organization Name is required</span></td>
 				</tr>
 				<tr>
-					<td><b>My City:</b></td>
+					<td class="label">My City:</td>
 					<td><input type="text" name="city" class="contactInput"></td>
 				</tr>
 				<tr>
-					<td><b>My State or Province:</b></td>
-					<td><select name="state" id="state" class="contactInput">
-						<option value="Select">Select State or Province</option>
+					<td class="label">My State or Province:</td>
+					<td><select name="state" id="state" class="contactInput Required">
+						<option value="">Select State or Province</option>
 						<option value="Andhra Pradesh">Andhra Pradesh</option>
 						<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -176,10 +175,11 @@
 						<option value="Uttarakhand">Uttarakhand</option>
 						<option value="West Bengal">West Bengal</option>
 						</select>
+						<span class="required">*</span><span id="error2" class="errorMsg hide">State is required</span>
 					</td>
 				</tr>
 				<tr>
-					<td><b>Please Contact Me By:</b></td>
+					<td class="label">Please Contact Me By:</td>
 					<td>
 						<input type="radio" id="Email" class="contactRadio" name="preferedContact" value="Email">
 						<label for="Email">Email</label><br>
@@ -190,7 +190,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><b>Promotion Code:</b></td>
+					<td class="label">Promotion Code:</td>
 					<td><input type="text" name="promoCode" class="contactInput" id="promoCode"></td>
 				</tr>
 				<tr>
@@ -200,7 +200,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><b>My Website Address is:</b></td>
+					<td class="label">My Website Address is:</td>
 					<td><input type="text" name="webAddr" class="contactInput"></td>
 				</tr>
 				<tr>
