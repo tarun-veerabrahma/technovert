@@ -54,7 +54,6 @@ function clearForm(event) {
 			l[i].value = "";
 		}
 	}
-	document.getElementById("state").value = "Select";
 	var k=document.getElementsByClassName("contactRadio");
 	for(let i=0; i<k.length; i++){
 		if(k[i].checked == true)
@@ -62,6 +61,11 @@ function clearForm(event) {
 			k[i].checked = false;
 		}
 	}
+	var h=document.getElementsByClassName("errorMsg");
+	for(let i=0;i<h.length;i++){
+		h[i].classList.add("hide");
+	}
+	document.getElementsByClassName("validation")[0].innerHTML="";
 }
 
 
