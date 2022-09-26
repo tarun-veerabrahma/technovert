@@ -61,24 +61,26 @@
 		<p class="content">
 			We are looking for smart people who love fiddling with code and pour their heart into it. If you are one, wwe would like to talk to you. Please fill the form below and we will get back to you.
 		</p>
-		<form class="careerForm">
+		
+		<p class="ErrorMsg hide">Please fill all the details!</p>
+		<form class="careerForm" name="careerForm">
 			<table class="table1">
 				<tr>
 					<td class="label"><b>Name</b></td>
-					<td><input type="text" name="name"></td>
+					<td><input type="text" class="required" name="name"></td>
 				</tr>
 				<tr>
 					<td class="label"><b>Email</b></td>
-					<td><input type="Email" name="email"></td>
+					<td><input type="Email" class="required" name="email"></td>
 				</tr>
 				<tr>
 					<td class="label"><b>Desired Role</b></td>
-					<td><input type="text" name="role"></td>
+					<td><input type="text" class="required" name="role"></td>
 				</tr>
 				<tr>
 					<td class="label"><b>Upload Resume</b></td>
 					<td>
-						<input type="text" name="txt"> &ensp; 
+						<input type="text" class="required" id="filename" name="txt" readonly> &ensp; 
 						<label for="files" class='btn'><b>Browse..</b></label>
 						<input id="files" style="visibility: hidden;" type="file" name="file" >
 					</td>
@@ -87,7 +89,7 @@
 					<td></td>
 					<td>
 						<label for="submit" class="btn"><b>Submit</b></label>
-						<input type="submit" id="submit" style="visibility: hidden;" name="submit">
+						<input type="button" id="submit" style="visibility: hidden;" name="submit">
 					</td>
 				</tr>
 			</table>	
@@ -102,7 +104,7 @@
 		<div class="successfulSubmission hide">
 			Thank you for reaching out to us! We will get back to you shortly.
 		</div>
-		<form class="contactForm" id="contactForm">
+		<form class="contactForm" name="contactForm" id="contactForm">
 			<table class="table1">
 				<tr>
 					<td><b>My Name:</b></td>
@@ -119,7 +121,7 @@
 				</tr>
 				<tr>
 					<td><b>My Email Address:</b></td>
-					<td><input type="email" name="meMail" class="contactInput Required"><span class="required">*</span><span id="error1" class="errorMsg hide">MailId is required</span></td>
+					<td><input type="email" name="meMail" onblur="validateMail(this)" class="contactInput Required"><span class="required">*</span><span id="error1" class="errorMsg hide">MailId is required</span><span class="validation"></span></td>
 				</tr>
 				<tr>
 					<td><b>My Telephone Number:</b></td>
