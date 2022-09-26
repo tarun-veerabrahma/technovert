@@ -1,4 +1,4 @@
-
+//navBar JavaScript
 var a = "home";
 document.getElementById("homeNav").onclick = function() {change("homeNav","home")};
 document.getElementById("servicesNav").onclick = function() {change("servicesNav","")};
@@ -14,6 +14,35 @@ function change(This,e) {
 }
 
 
+//Careers
+document.getElementById("files").onchange=function(event){value()};
+function value(event) {
+	document.getElementById("filename").value = document.getElementById("files").value;
+}
+
+document.getElementById("submit").onclick=function(event){submit(event)};
+function submit(event){
+	event.preventDefault();
+	var a=document.forms["careerForm"];
+	var c=document.forms["careerForm"].getElementsByClassName("required")
+	let i=0;
+	for(i=0; i< c.length;i++){
+		if(c[i].value=="")
+		{
+			a.parentNode.querySelector(".ErrorMsg").classList.remove("hide");
+			break;
+		}
+	}
+	if(i == c.length){
+		a.parentNode.querySelector(".ErrorMsg").classList.add("hide");
+		a.classList.add("hide");
+		a.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
+	}
+}
+
+
+//Contact Us
+var validationFlag=0;
 //ClearForm JavaScript
 document.getElementById("clearButton").onclick=function(event){clearForm(event)};
 function clearForm(event) {
@@ -51,15 +80,8 @@ function promoBox(){
 
 
 //GenderAlerts JavaScript
-document.getElementById("Male").onclick=function(){ helloSir()};
-function helloSir(){
-	alert("Hello Sir!");
-}
-
-document.getElementById("Female").onclick=function(){ helloMadam()};
-function helloMadam(){
-	alert("Hello Madam!");
-}
+document.getElementById("Male").onclick=function(){alert("Hello Sir!");};
+document.getElementById("Female").onclick=function(){alert("Hello Madam!");};
 
 
 //RequirementsCheck JavaScript
@@ -106,7 +128,7 @@ function check(event){
 			if(b.classList.contains("hide")){
 				b.classList.remove("hide");
 			}
-			c+=1;
+			c=1;
 		}
 		else{
 			if(!b.classList.contains("hide")){
@@ -114,9 +136,25 @@ function check(event){
 			}
 		}
 	}
-	if(c==0){
+	if(c==0 && validationFlag==0){
 		document.getElementsByClassName("contactForm")[0].classList.add("hide");
 		document.getElementsByClassName("successfulSubmission")[0].classList.remove("hide");			
 	}
 }
 
+
+//Email Validation
+function validateMail(a){
+	var email = document.forms["contactForm"]["meMail"].value;
+	var valid = a.parentNode.getElementsByClassName("validation")[0];
+
+	let pattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$";
+	if(!email.match(pattern)){
+		valid.innerHTML = "Invalid Email!";
+		validationFlag=1;
+	}
+	else{
+		valid.innerHTML="";
+		validationFlag=0;
+	}
+}
