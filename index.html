@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>FTSWS</title>
+</head>
+<body class="body1">
+	<div class="outterContainer">
+		<div class="corner">
+			<ul class="nav navs">
+				<li class="item">
+					<a class="link" href="#">Request a Quote</a>
+				</li>
+				<li class="separator"></li>
+				<li class="item">
+					<a class="link" href="#">Client Login</a>
+				</li>
+				<li class="separator"></li>
+				<li class="item">
+					<a class="link" href="#">Vehicle Export Portal</a>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="logo">
+				<img src="logo.png">
+			</div>
+			<div class="boxout">
+				<div class="boxin">
+					<div class="mainNav">
+						<ul class="nav navs">
+							<li class="item active" id='home-item'>
+								<a class="link" href="#" onclick="change('home','home-item')">HOME</a>
+							</li>
+							<li class="separator"></li>
+							<li class="item" id='about-item'>
+								<a class="link" href="#" onclick="change('','about-item')">ABOUT FTZWS</a>
+							</li>
+							<li class="separator"></li>
+							<li class="item" id='ourServices-item'>
+								<a class="link" id="ourServices-link" href="#" onclick="change('ourServices','ourServices-item')">OUR SERVICES</a>
+							</li>
+							<li class="separator"></li>
+							<li class="item" id='ourClients-item'>
+								<a class="link" href="#" onclick="change('','ourClients-item')">OUR CLIENTS</a>
+							</li>
+							<li class="separator"></li>
+							<li class="item" id='contact-item'>
+								<a class="link" href="#" onclick="change('','contact-item')">CONTACT US</a>
+							</li>
+						</ul>
+						<script type="text/javascript">
+							function change(e,b) {
+								var a = document.getElementsByClassName('page');
+								for(let i = 0; i < a.length; i++){
+									if(!(a[i].classList.contains('hide'))){
+										a[i].classList.add('hide');
+									}
+								}
+								document.getElementsByClassName('active')[0].classList.remove('active');
+								document.getElementById(b).classList.add('active');
+								document.getElementById(e).classList.remove('hide');
+
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Home page-->
+			<div class="home page" id="home">
+				<div class="title">
+					<h1>BRINGING TECHNOLOGY<br>AND OPERATIONAL EXCELLENCE.</h1>
+				</div>
+				<div class="row m-0 content">
+					<div class="col-sm-4">
+						<img class="image" src="whatAFreeZone.png">
+						<p>
+							Imagine an international gateway where goods and merchandise flow across borders. Where countries lower taxes, reduce red tape, and eliminate road blocks. Where companies import goods and merchandise directly into a Free Trade Zone - and then ship products out duty free.
+						</p>
+						<p>
+							The Miami Free Trade Zone connects North America, Europe and Asia to Latin America and the Caribbean via direct air and sea transportation links, plus rail and expressway. Operated by FTZ World Services, the 47-acre Zone (#372) saves companies money and time.
+						</p>
+						<a class="link" href="#">More about Free Trade Zones ></a>
+					</div>
+					<div class="col-sm-4">
+						<img class="image" src="whoWeAre.png">
+						<p>
+							FTZ World Services is your ticket to the world. We're the licensed operator of the Miami Free Trade Zone, the "Gateway to the Americas." We process as much as $1 billion in goods from more than 70 countries each year.
+						</p>
+						<p>
+							A leader in free trade zone operations, FTZ works magic behind the scenes, offering logistical and operational excellence. FTZ's many services include technology, public warehousing, yard storage and on-site U.S. Customs. Other U.S. free trade zones also benefit from our technological support and operational consulting.
+						</p>
+						<a class="link" href="#">Request a Quote ></a>
+					</div>
+					<div class="col-sm-4">
+						<img class="image" src="ourAdvantage.png">
+						<p>
+							FTZ World Service has the unique advantage of being the licensed operator of the Miami Free Trade Zone. We offer state-of-the-art facilities and a stellar track record in zone management, plus technological support, warehousing, and storage. Because FTZ understands U.S. Customs rules, we can use our software and logistical expertise to speed up your paperwork, remove road blocks, and get products to market cheaper and faster. We save companies across multiple industries thousands of dollars per month in fees. We'll give you less to manage and more dollars to keep in your pocket.
+						</p>
+						<a class="link" href="#">More about what we offer ></a>
+					</div>
+				</div>
+			</div>
+
+
+			<!--Our Services Page-->
+			<div class="page hide" id="ourServices">
+				<div class="ourServices">
+					<div class="row m-0">
+						<div class="col-sm-4 p-3 left">
+							<img src="person.png" class="image">
+							<img src="tiles.png" class="image">
+							<div class="leftBelow">
+								<a href="#" class="link">Technology Services</a><br>
+								<a href="#" class="link">Public Warehousing</a><br>
+								<a href="#" class="link">Yard Storage</a>
+							</div>
+						</div>
+						<div class="col-sm-8 p-3 right">
+							<p class="subTitle">OUR SERVICES</p>
+							<p>
+								Our highly trained and experienced staff can handle even the most complex distribution needs. We've designed a package of benefits that work together to streamline your experience in the Miami Free Trade Zone. Tell us what you need and we'll provide it. Our primary services are <a href="#" class="link">Technology Services</a>, <a class="link" href="#">Public Warehousing</a> and <a class="link" href="#">Yard Storage</a>.
+							</p>
+							<p>
+								The Zone's un-paralleled infrastructure includes power, communication systems, fiber optics, security, and easy access to land, rail, sea, and air transportation. Our clients can tap into more than 850,000 square feet of mixed-use office, showroom and warehouse facilities in the Zone, including:
+								<ul>
+									<li>Two public warehouses with 33,000 feet each.</li>
+									<li>
+										Exhibition space in two showroom malls, each containing approximately75,000 square feet. A commercial building adjacent to the warehouses with offices and other spaces.
+									</li>
+									<li>
+										The offices of U.S. Customs & Border Patrol, along with several other federal agencies integral to trade facilitation and compliance.
+									</li>
+								</ul>
+							</p>
+							<div class="help">
+								Want to see how FTZ World Services can help you?<br>
+								<button onclick="#" class="btn">
+									Request Someone to Contact You <span class="arrow">></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="nav footer">
+				<span>Copyright © 2010 FTZ World Services. All rights reserved.</span>
+				<a href="#" class="footer-link">Contact us</a>
+				<a class="separator footer-link" href="#">|</a>
+				<a href="#" class="footer-link">Request a Quote</a>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
