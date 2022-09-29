@@ -7,34 +7,34 @@
 	<link rel="stylesheet" href="Task1.css">
 	<script src="Task3.js" defer></script>
 </head>
-<body>
-	<div class="hd">
-		<h1>TECHNOVERT</h1>
+<body class="body1">
+	<div class="heading">
+		<h1 class="title">TECHNOVERT</h1>
 	</div>
 
-	<div class="tnav">
-		<button class="link active" id="homeNav">HOME</button>
-		<button class="link" id="servicesNav">SERVICES</button>
-		<button class="link" id="careersNav">CAREERS</button>
-		<button class="link" id="contactNav">CONTACT</button>
-		<img class="rig" src="blog-icon.jpg"/>
+	<div class="navContainer">
+		<ul class="nav">
+			<li class="link active" id="homeNav" onclick="changePage('homeNav','home')">Home</li>
+			<li class="link" id="servicesNav" onclick="changePage('servicesNav','')">Services</li>
+			<li class="link" id="careersNav" onclick="changePage('careersNav','careers')">Careers</li>
+			<li class="link" id="contactNav" onclick="changePage('contactNav','contact')">Contact</li>
+		</ul>
+		<img class="rightChild" src="blog-icon.jpg"/>
 	</div>
 
 	
-
-
 	<!--Home Page-->
 	<div class="page home" id="home">
 		<div class="news">
-			<h2>NEWS</h2>
-			<ul style="list-style-type: '-'">
-				<li>Technovert is now Microsoft partner in Information Security Solutions</li>
+			<h2 class="contentHeading">News</h2>
+			<ul class="list">
+				<li class="point">Technovert is now Microsoft partner in Information Security Solutions</li>
 				
-				<li>We deliver one of the largest book information stores in the world</li>
+				<li class="point">We deliver one of the largest book information stores in the world</li>
 
-				<li>Our team delivered the first Windows 8 Metro style application for the Windows Phone group at Microsoft</li>
+				<li class="point">Our team delivered the first Windows 8 Metro style application for the Windows Phone group at Microsoft</li>
 
-				<li>Technovert partners with a strategic technology CTO group</li>
+				<li class="point">Technovert partners with a strategic technology CTO group</li>
 			</ul>
 		</div>
 		<br>
@@ -57,86 +57,112 @@
 
 	<!--Careers Page-->
 	<div class="page careers hide" id="careers">
-		<h1 class="content">Careers at Technovert</h1>
+		<h1 class="content-heading">Careers at Technovert</h1>
 		<p class="content">
 			We are looking for smart people who love fiddling with code and pour their heart into it. If you are one, wwe would like to talk to you. Please fill the form below and we will get back to you.
 		</p>
 		
-		<p class="ErrorMsg hide">Please fill all the details!</p>
-		<form class="careerForm" name="careerForm">
-			<table class="table1">
-				<tr>
-					<td class="label">Name</td>
-					<td><input type="text" class="required" name="name"></td>
-				</tr>
-				<tr>
-					<td class="label">Email</td>
-					<td><input type="Email" class="required" name="email"></td>
-				</tr>
-				<tr>
-					<td class="label">Desired Role</td>
-					<td><input type="text" class="required" name="role"></td>
-				</tr>
-				<tr>
-					<td class="label">Upload Resume</td>
-					<td>
-						<input type="text" class="required" id="filename" name="txt" readonly> &ensp; 
-						<label for="files" class='btn'><b>Browse..</b></label>
-						<input id="files" style="visibility: hidden;" type="file" name="file" >
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<button class="submitBtn" id="submit" name="submit">Submit</button>
-					</td>
-				</tr>
-			</table>	
-		</form>
+		<p class="commonErrorMsg hide">Please fill all the details!</p>
+		<div class="table1">
+			<form class="careerForm" name="careerForm">
+				<div class="row">
+					<span class="cell label">Name</span>
+					<span class="cell inputCell">
+						<input type="text" class="input required" name="name">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">Email</span>
+					<span class="cell inputCell">
+						<input type="Email" class="input required" name="email">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">Desired Role</span>
+					<span class="cell inputCell">
+						<input type="text" class="input required" name="role">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">Upload Resume</span>
+					<span class="cell inputCell">
+						<input type="text" class="input required" id="filename" name="txt" readonly> &ensp; 
+						<label for='files' class='button'><b>Browse..</b></label>
+						<input id='files' onchange="fileName()" class='input hidden' type='file' name='file' >
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label"></span>
+					<span class="cell inputCell">
+						<button class="submitButton" id="submit"  name="submit">Submit</button>
+					</span>
+				</div>
+			</form>	
+		</div>
 	</div>
 
 
 	<!--Contact Page-->
 	<div class="page contact hide" id="contact">
-		<h1 class="content">Contact Us</h1>
-		<div id="mainError" class="ErrorMsg hide">Please fill the all required fields below</div>
-		<div class="successfulSubmission hide">
-			Thank you for reaching out to us! We will get back to you shortly.
+		<h1 class="content-heading">Contact Us</h1>
+		<div id="mainError" class="content commonErrorMsg hide">
+			<span>Please fill the all required fields below.</span>
 		</div>
-		<form class="contactForm" name="contactForm" id="contactForm">
-			<table class="table1">
-				<tr>
-					<td class="label">My Name:</td>
-					<td><input type="text" name="myName" class="contactInput Required"><span class="required">*</span><span id='error0' class="errorMsg hide">Name is required</span></td>
-				</tr>
-				<tr>
-					<td class="label">My Gender:</td>
-					<td>
+		<div class="successfulSubmission hide">
+			<span>Thank you for reaching out to us! We will get back to you shortly.</span>
+		</div>
+		<div class="table1">
+			<form class="contactForm" name="contactForm" id="contactForm">
+				<div class="row">
+					<span class="cell label">My Name:</span>
+					<span class="cell inputCell">
+						<input type="text" name="myName" class="input contactInput Required">
+						<span class="required">*</span>
+						<span class="errorMsg hide">Name is required</span>
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My Gender:</span>
+					<span class="cell inputCell">
 						<input type="radio" id="Male" class="contactRadio" name="gender" value="Male">
 						<label for="Male">Male</label><br>
 						<input type="radio" id="Female" class="contactRadio" name="gender" value="Female">
 						<label for="Female">Female</label><br>
-					</td>
-				</tr>
-				<tr>
-					<td class="label">My Email Address:</td>
-					<td><input type="email" name="meMail" onblur="validateMail(this)" class="contactInput Required"><span class="required">*</span><span id="error1" class="errorMsg hide">MailId is required</span><span class="validation"></span></td>
-				</tr>
-				<tr>
-					<td class="label">My Telephone Number:</td>
-					<td><input type="tel" name="telphone" class="contactInput"></td>
-				</tr>
-				<tr>
-					<td class="label">My Organization Name:</td>
-					<td><input type="text" name="org" class="contactInput Required"><span class="required">*</span><span id="error2" class="errorMsg hide">Organization Name is required</span></td>
-				</tr>
-				<tr>
-					<td class="label">My City:</td>
-					<td><input type="text" name="city" class="contactInput"></td>
-				</tr>
-				<tr>
-					<td class="label">My State or Province:</td>
-					<td><select name="state" id="state" class="contactInput Required">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My Email Address:</span>
+					<span class="cell inputCell">
+						<input type="email" name="meMail" onblur="validateMail(this)" class="input contactInput Required">
+						<span class="required">*</span>
+						<span id="error1" class="errorMsg hide">MailId is required</span>
+						<span class="validation"></span>
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My Telephone Number:</span>
+					<span class="cell inputCell">
+						<input type="tel" name="telphone" class="input contactInput">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My Organization Name:</span>
+					<span class="cell inputCell">
+						<input type="text" name="org" class="input contactInput Required">
+						<span class="required">*</span>
+						<span id="error2" class="errorMsg hide">Organization Name is required</span>
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My City:</span>
+					<span class="cell inputCell">
+						<input type="text" name="city" class="input contactInput">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My State or Province:</span>
+					<span class="cell inputCell">
+						<select name="state" id="state" class="select contactInput Required">
 						<option value="">Select State or Province</option>
 						<option value="Andhra Pradesh">Andhra Pradesh</option>
 						<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -175,54 +201,60 @@
 						<option value="Uttarakhand">Uttarakhand</option>
 						<option value="West Bengal">West Bengal</option>
 						</select>
-						<span class="required">*</span><span id="error2" class="errorMsg hide">State is required</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="label">Please Contact Me By:</td>
-					<td>
+						<span class="required">*</span>
+						<span id="error2" class="errorMsg hide">State is required</span>
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">Please Contact Me By:</span>
+					<span class="cell inputCell">
 						<input type="radio" id="Email" class="contactRadio" name="preferedContact" value="Email">
 						<label for="Email">Email</label><br>
 						<input type="radio" id="Phone" class="contactRadio" name="preferedContact" value="Phone">
 						<label for="Phone">Phone</label><br>
 						<input type="radio" id="Both" class="contactRadio" name="preferedContact" value="Both">
 						<label for="Both">Both</label>
-					</td>
-				</tr>
-				<tr>
-					<td class="label">Promotion Code:</td>
-					<td><input type="text" name="promoCode" class="contactInput" id="promoCode"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<h3>Optional Information</h3>
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">Promotion Code:</span>
+					<span class="cell inputCell">
+						<input type="text" name="promoCode" class="input contactInput" id="promoCode">
+					</span>
+				</div>
+				<div class="full-row">
+					<span class="colspan" colspan="2">
+						<h3 class="subHeading">Optional Information</h3>
 						<i>This information is optional but it helpsus to serve you better.</i>
-					</td>
-				</tr>
-				<tr>
-					<td class="label">My Website Address is:</td>
-					<td><input type="text" name="webAddr" class="contactInput"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
+					</span>
+				</div>
+				<div class="row">
+					<span class="cell label">My Website Address is:</span>
+					<span class="cell inputCell">
+						<input type="text" name="webAddr" class="input contactInput">
+					</span>
+				</div>
+				<div class="full-row">
+					<span class="colspan">
 						<b>Tell Us More About Your Organization:</b><br>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
+					</span>
+				</div>
+				<div class="full-row">
+					<span class="colspan">
 						<b>What I'd really like to know is:</b><br>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2"><button id="sendButton">Send Message</button> <button id="clearButton">Clear Form</button></td>
-				</tr>
-				<tr>
-					<td colspan="2"><span class=></span></td>
-				</tr>
-			</table>
-		</form>		
+					</span>
+				</div>
+				<div class="full-row">
+					<span class="colspan">
+						<button id="sendButton">Send Message</button>
+						<button id="clearButton">Clear Form</button>
+					</span>
+				</div>
+				
+			</form>
+		</div>		
 	</div>
 </body>
 </html>
