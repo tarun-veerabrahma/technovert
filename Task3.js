@@ -1,42 +1,39 @@
 //navBar JavaScript
-var a = "home";
-document.getElementById("homeNav").onclick = function() {change("homeNav","home")};
-document.getElementById("servicesNav").onclick = function() {change("servicesNav","")};
-document.getElementById("careersNav").onclick = function() {change("careersNav","careers")};
-document.getElementById("contactNav").onclick = function() {change("contactNav","contact")};
-function change(This,e) {
+var defaultPage = "home";
+var presentPage;
+presentPage=defaultPage;
+
+function changePage(This,calledPage) {
 	document.getElementsByClassName("active")[0].classList.remove("active");
 	document.getElementById(This).classList.add("active");
-	document.getElementById(a).classList.add("hide");
-	document.getElementById(e).classList.remove("hide");
-	a=e;
+	document.getElementById(presentPage).classList.add("hide");
+	document.getElementById(calledPage).classList.remove("hide");
+	presentPage=calledPage;
 
 }
 
 
 //Careers
-document.getElementById("files").onchange=function(event){value()};
-function value(event) {
+function fileName() {
 	document.getElementById("filename").value = document.getElementById("files").value;
 }
 
-document.getElementById("submit").onclick=function(event){submit(event)};
-function submit(event){
+document.getElementById("submit").onclick=function(event){careersFormValidation(event)};
+function careersFormValidation(event){
 	event.preventDefault();
-	var a=document.forms["careerForm"];
-	var c=document.forms["careerForm"].getElementsByClassName("required")
-	let i=0;
-	for(i=0; i< c.length;i++){
-		if(c[i].value=="")
+	var form=document.forms["careerForm"];
+	var required_list=document.forms["careerForm"].getElementsByClassName("required")
+	for(var i=0; i< required_list.length;i++){
+		if(required_list[i].value=="")
 		{
-			a.parentNode.querySelector(".ErrorMsg").classList.remove("hide");
+			form.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.remove("hide");
 			break;
 		}
 	}
-	if(i == c.length){
-		a.parentNode.querySelector(".ErrorMsg").classList.add("hide");
-		a.classList.add("hide");
-		a.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
+	if(i == required_list.length){
+		form.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.add("hide");
+		form.classList.add("hide");
+		form.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
 	}
 }
 
@@ -46,36 +43,36 @@ var validationFlag=0;
 //ClearForm JavaScript
 document.getElementById("clearButton").onclick=function(event){clearForm(event)};
 function clearForm(event) {
-	var l = document.getElementsByClassName("contactInput");
+	var input_fields = document.getElementsByClassName("contactInput");
 	event.preventDefault();
-	for(let i=0; i<l.length; i++){
-		if(l[i].value != "")
+	for(let i=0; i<input_fields.length; i++){
+		if(input_fields[i].value != "")
 		{
-			l[i].value = "";
+			input_fields[i].value = "";
 		}
 	}
-	var k=document.getElementsByClassName("contactRadio");
-	for(let i=0; i<k.length; i++){
-		if(k[i].checked == true)
+	var radio_buttons=document.getElementsByClassName("contactRadio");
+	for(let i=0; i<radio_buttons.length; i++){
+		if(radio_buttons[i].checked == true)
 		{
-			k[i].checked = false;
+			radio_buttons[i].checked = false;
 		}
 	}
-	var h=document.getElementsByClassName("errorMsg");
-	for(let i=0;i<h.length;i++){
-		h[i].classList.add("hide");
+	var error_msg=document.getElementsByClassName("errorMsg");
+	for(let i=0;i<error_msg.length;i++){
+		error_msg[i].classList.add("hide");
 	}
 	document.getElementsByClassName("validation")[0].innerHTML="";
 }
 
 
 //PromoCode JavaScript
-document.getElementById("state").onclick=function(){promoBox()};
-function promoBox(){
-	var b = document.getElementById("state").value;
-	if(b != "Select")
+
+function setPromoBoxValue(){
+	var state_value = document.getElementById("state").value;
+	if(state_value != "")
 	{
-		document.getElementById("promoCode").value = b+"-PROMO";
+		document.getElementById("promoCode").value = state_value+"-PROMO";
 	}
 	else{
 		document.getElementById("promoCode").value = "";
@@ -83,64 +80,31 @@ function promoBox(){
 }
 
 
-//GenderAlerts JavaScript
-document.getElementById("Male").onclick=function(){alert("Hello Sir!");};
-document.getElementById("Female").onclick=function(){alert("Hello Madam!");};
-
 
 //RequirementsCheck JavaScript
-document.getElementById("sendButton").onclick=function(event){ check(event)};
-
-/*function check(event){
+document.getElementById("sendButton").onclick=function(event){requirementsCheck(event)};
+function requirementsCheck(event){
 	event.preventDefault();
-	var l = document.getElementsByClassName("Required");
-	let c=0;
-	for(let i=0;i<l.length;i++){
-		if(l[i].value=="")
+	var required_elements = document.getElementsByClassName("Required");
+	let flag=0;
+	var temp;
+	for(let i=0;i<required_elements.length;i++){
+		temp=required_elements[i].parentElement;
+		let error_msg=t.querySelector(".errorMsg");
+		if(required_elements[i].value=="")
 		{
-			c+=1;
-			break;
-		}
-	}
-	var t=document.getElementById("mainError");
-	if(c>0){
-		
-		if(t.classList.contains("hide")){
-			t.classList.remove("hide");
-		}
-	}
-	else{
-		if(!t.classList.contains("hide")){
-			t.classList.add("hide");
-		}
-		alert("Your request has been received");
-	}
-}*/
-
-
-
-function check(event){
-	event.preventDefault();
-	var l = document.getElementsByClassName("Required");
-	let c=0;
-	let t="";
-	for(let i=0;i<l.length;i++){
-		t=l[i].parentElement;
-		let b=t.querySelector(".errorMsg");
-		if(l[i].value=="")
-		{
-			if(b.classList.contains("hide")){
-				b.classList.remove("hide");
+			if(error_msg.classList.contains("hide")){
+				error_msg.classList.remove("hide");
 			}
-			c=1;
+			flag=1;
 		}
 		else{
-			if(!b.classList.contains("hide")){
-				b.classList.add("hide");
+			if(!error_msg.classList.contains("hide")){
+				error_msg.classList.add("hide");
 			}
 		}
 	}
-	if(c==0 && validationFlag==0){
+	if(flag==0 && validationFlag==0){
 		document.getElementsByClassName("contactForm")[0].classList.add("hide");
 		document.getElementsByClassName("successfulSubmission")[0].classList.remove("hide");			
 	}
@@ -148,9 +112,9 @@ function check(event){
 
 
 //Email Validation
-function validateMail(a){
+function validateMail(input){
 	var email = document.forms["contactForm"]["meMail"].value;
-	var valid = a.parentNode.getElementsByClassName("validation")[0];
+	var valid = input.parentNode.getElementsByClassName("validation")[0];
 
 	let pattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$";
 	if(!email.match(pattern)){
