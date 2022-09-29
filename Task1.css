@@ -1,17 +1,25 @@
-body {
+.body1 {
 	margin: 0;
 }
-.tnav {
+.navContainer {
 	background-color: rgb(51, 51, 51);
 	overflow: hidden;
-	padding: 0px 20px;
+	display: flex;
 }
 
-.tnav button {
+.nav{
+	display: flex;
+	list-style: none;
+	margin: 0px 0px 0px 15px;
+	padding: 0;
+}
+
+.navContainer .link {
 	float: left;
 	color: #fffff0;
 	font: status-bar;
 	text-align: center;
+	text-transform: uppercase;
 	padding: 10px;
 	font-size: 18px;
 	font-weight: bold;
@@ -21,31 +29,32 @@ body {
 	border-left: 5px solid rgb(51, 51, 51);
 	margin-right: 2px;
 }
-.tnav button.active {
+.navContainer .link.active {
 	background-color: rgb(255, 153, 0);
 	color: black;
 	border-left: 5px solid white;
 }
-.tnav button:hover{
+.navContainer .link:hover{
 	background-color: rgb(255, 153, 0);
 	color: black;
 	border-left: 5px solid white;
 }
 
-.tnav img.rig {
-	float: right;
+.navContainer .rightChild {
+	margin-right: 0;
+	margin-left: auto;
 	padding: 10px;
 	border-radius: 15px;
 }
 
 
-.hd {
+.heading {
 	background-color: rgb(51,153,204);
 	height: 100px;
-	font-family: Century Gothic;
+	font-family: "Century Gothic";
 }
 
-.hd h1{
+.heading .title{
 	margin: 0;
 	float: left;
 	padding: 20px 30px;
@@ -54,92 +63,119 @@ body {
 	color: white;
 }
 
-.page {
+.home {
 	padding: 30px 50px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
-.page div.news{
+.home .news{
 	border: 1px solid #D3D3D3;
 	padding: 10px;
 	font-size: 13.64px;
 	width: fit-content;
 }
-
-.page div.news h2{
+.home .news .contentHeading{
+	text-transform: uppercase;
 	margin: 0;
 }
-
-.page div.news ul {
+.home .news .list {
 	margin: 0;
 	padding: 5px 15px;
 }
-
-.page div.news ul li{
+.home .news .list .point{
 	padding: 5px 10px;
 }
-
-.page div.content {
+.home .content {
 	font-size: 14px;
 	max-width: 1001px;
 }
+
 .hide {
 	display: none;
 }
+.hidden {
+	visibility: hidden;
+}
+
 .careers {
 	margin: 5px 20px 0px 20px;
 }
-.content{
-	margin: 0;
+.content,.content-heading{
 	color: black;
-	font-family: Century Gothic;
+	font-family: "Century Gothic";
 }
 
-.careers .btn{
+.careers .button{
 	font-size: 16px;
-	padding: 7px 30px 7px 15px;
+	padding: 8px 30px 8px 15px;
 	background-color: rgb(238, 238, 238);
 	border: 1px solid rgb(153, 153, 153);
 	border-radius: 2px;
 }
 
-.careers .careerForm .table1{
+.careers .table1{
+	display: table;
 	margin: 15px 15px 0px 15px;
 }
-.careers .careerForm .table1 tr td input{
+.careers .table1 .row{
+	display: table-row;
+}
+.careers .table1 .row .cell{
+	display: table-cell;
+	padding: 10px;
+	
+}
+.careers .table1 .row .cell .input{
 	padding: 8px;
 }
-.careers .careerForm .table1 tr td{
-	padding: 10px;
-	vertical-align: middle;
+.careers .label{
+	font-weight: bold;
 }
 
-.contact .contactForm .table1{
+.careers .submitButton{
+	font-size: 16px;
+	padding: 8px 30px 8px 15px;
+	font-weight: bold;
+	background-color: rgb(238, 238, 238);
+	border: 1px solid rgb(153, 153, 153);
+	border-radius: 2px;
+}
+
+
+.contact {
+	margin: 5px 20px 0px 20px;
+}
+.contact .table1{
+	display: table;
 	margin: 15px 15px 0px 15px;
 }
-.contact .contactForm .table1 tr td input,select{
-	padding: 4px;
+.contact .table1 .row{
+	display: table-row;
+}
+.contact .table1 .row .cell{
+	display: table-cell;
+}
+.contact .table1 .row .cell .input,.select{
+	padding: 5px;
 	width: 260px;
-    height: 41px;
+    height: 40px;
     margin: 2px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-.contact .contactForm .table1 .contactRadio {
+.contact .table1 .contactRadio {
 	height: auto;
 	width: auto;
 }
 
-.contact .contactForm .table1 tr td{
+.contact .table1 .row .cell{
 	padding: 10px;
-	vertical-align: middle;
 }
 
 .contact .required,.errorMsg,.validation {
 	color: red;
 }
-.ErrorMsg {
+.commonErrorMsg {
 	color: red;
 	font-size: 24;
 	font-weight: bold;
@@ -154,17 +190,4 @@ body {
 
 .contact .label{
 	font-weight: bold;
-}
-
-.careers .label{
-	font-weight: bold;
-}
-
-.careers .submitBtn{
-	font-size: 16px;
-	padding: 7px 30px 7px 15px;
-	font-weight: bold;
-	background-color: rgb(238, 238, 238);
-	border: 1px solid rgb(153, 153, 153);
-	border-radius: 2px;
 }
