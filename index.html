@@ -10,8 +10,8 @@
 </head>
 <body class="body1">
 	<div class="outterContainer">
-		<div class="corner">
-			<ul class="nav navs">
+		<div class="cornerNav">
+			<ul class="nav navigation">
 				<li class="item">
 					<a class="link" href="#">Request a Quote</a>
 				</li>
@@ -29,41 +29,41 @@
 			<div class="logo">
 				<img src="logo.png">
 			</div>
-			<div class="boxout">
-				<div class="boxin">
+			<div class="outterContainer">
+				<div class="innerContainer">
 					<div class="mainNav">
-						<ul class="nav navs">
+						<ul class="nav navigation">
 							<li class="item active" id='home-item'>
-								<a class="link" href="#" onclick="change('home','home-item')">HOME</a>
+								<a class="link" href="#" onclick="changePage('home','home-item')">HOME</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='about-item'>
-								<a class="link" href="#" onclick="change('','about-item')">ABOUT FTZWS</a>
+								<a class="link" href="#" onclick="changePage('','about-item')">ABOUT FTZWS</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='ourServices-item'>
-								<a class="link" id="ourServices-link" href="#" onclick="change('ourServices','ourServices-item')">OUR SERVICES</a>
+								<a class="link" id="ourServices-link" href="#" onclick="changePage('ourServices','ourServices-item')">OUR SERVICES</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='ourClients-item'>
-								<a class="link" href="#" onclick="change('','ourClients-item')">OUR CLIENTS</a>
+								<a class="link" href="#" onclick="changePage('','ourClients-item')">OUR CLIENTS</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='contact-item'>
-								<a class="link" href="#" onclick="change('','contact-item')">CONTACT US</a>
+								<a class="link" href="#" onclick="changePage('','contact-item')">CONTACT US</a>
 							</li>
 						</ul>
 						<script type="text/javascript">
-							function change(e,b) {
-								var a = document.getElementsByClassName('page');
-								for(let i = 0; i < a.length; i++){
-									if(!(a[i].classList.contains('hide'))){
-										a[i].classList.add('hide');
-									}
-								}
-								document.getElementsByClassName('active')[0].classList.remove('active');
-								document.getElementById(b).classList.add('active');
-								document.getElementById(e).classList.remove('hide');
+							var defaultPage = "home";
+							var presentPage;
+							presentPage=defaultPage;
+
+							function changePage(calledPage,This) {
+								document.getElementsByClassName("active")[0].classList.remove("active");
+								document.getElementById(This).classList.add("active");
+								document.getElementById(presentPage).classList.add("hide");
+								document.getElementById(calledPage).classList.remove("hide");
+								presentPage=calledPage;
 
 							}
 						</script>
@@ -141,7 +141,7 @@
 							</p>
 							<div class="help">
 								Want to see how FTZ World Services can help you?<br>
-								<button onclick="#" class="btn">
+								<button onclick="#" class="button">
 									Request Someone to Contact You <span class="arrow">></span>
 								</button>
 							</div>
