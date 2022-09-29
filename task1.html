@@ -94,7 +94,7 @@
 				<div class="row">
 					<span class="cell label"></span>
 					<span class="cell inputCell">
-						<button class="submitButton" id="submit"  name="submit">Submit</button>
+						<button class="submitButton" id="submit" name="submit">Submit</button>
 					</span>
 				</div>
 			</form>	
@@ -124,16 +124,16 @@
 				<div class="row">
 					<span class="cell label">My Gender:</span>
 					<span class="cell inputCell">
-						<input type="radio" id="Male" class="contactRadio" name="gender" value="Male">
+						<input type="radio" id="Male" onclick="alert('Hello Sir!');" class="contactRadio" name="gender" value="Male">
 						<label for="Male">Male</label><br>
-						<input type="radio" id="Female" class="contactRadio" name="gender" value="Female">
+						<input type="radio" id="Female" onclick="alert('Hello Madam!');" class="contactRadio" name="gender" value="Female">
 						<label for="Female">Female</label><br>
 					</span>
 				</div>
 				<div class="row">
 					<span class="cell label">My Email Address:</span>
 					<span class="cell inputCell">
-						<input type="email" name="meMail" onblur="validateMail(this)" class="input contactInput Required">
+						<input type="email" name="meMail" onchange="validateMail(this)" class="input contactInput Required">
 						<span class="required">*</span>
 						<span id="error1" class="errorMsg hide">MailId is required</span>
 						<span class="validation"></span>
@@ -162,7 +162,7 @@
 				<div class="row">
 					<span class="cell label">My State or Province:</span>
 					<span class="cell inputCell">
-						<select name="state" id="state" class="select contactInput Required">
+						<select name="state" onclick="setPromoBoxValue()" id="state" class="select contactInput Required">
 						<option value="">Select State or Province</option>
 						<option value="Andhra Pradesh">Andhra Pradesh</option>
 						<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
