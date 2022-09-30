@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="Task1.css">
 	<script src="Task3.js" defer></script>
 </head>
-<body class="body1">
+<body class="body">
 	<div class="heading">
-		<h1 class="title">TECHNOVERT</h1>
+		<span class="title">TECHNOVERT</span>
 	</div>
 
 	<div class="navContainer">
-		<ul class="nav">
+		<ul class="navigation">
 			<li class="link active" id="homeNav" onclick="changePage('homeNav','home')">Home</li>
 			<li class="link" id="servicesNav" onclick="changePage('servicesNav','')">Services</li>
 			<li class="link" id="careersNav" onclick="changePage('careersNav','careers')">Careers</li>
@@ -63,8 +63,8 @@
 		</p>
 		
 		<p class="commonErrorMsg hide">Please fill all the details!</p>
-		<div class="table1">
-			<form class="careerForm" name="careerForm">
+		<div class="table">
+			<form class="careerForm" name="careerForm" onsubmit="careersFormValidation()">
 				<div class="row">
 					<span class="cell label">Name</span>
 					<span class="cell inputCell">
@@ -86,15 +86,15 @@
 				<div class="row">
 					<span class="cell label">Upload Resume</span>
 					<span class="cell inputCell">
-						<input type="text" class="input required" id="filename" name="txt" readonly> &ensp; 
-						<label for='files' class='button'><b>Browse..</b></label>
+						<input type="text" class="input required" id="filename" name="txt" readonly>
+						<label for='files' class='button'>Browse..</label>
 						<input id='files' onchange="fileName()" class='input hidden' type='file' name='file' >
 					</span>
 				</div>
 				<div class="row">
 					<span class="cell label"></span>
 					<span class="cell inputCell">
-						<button class="submitButton" id="submit" name="submit">Submit</button>
+						<input id='submitCareersForm' onclick="careersFormValidation()" class='button' type='button' name='submitButton' value="Submit">
 					</span>
 				</div>
 			</form>	
@@ -104,14 +104,14 @@
 
 	<!--Contact Page-->
 	<div class="page contact hide" id="contact">
-		<h1 class="content-heading">Contact Us</h1>
+		<h1 class="contentHeading">Contact Us</h1>
 		<div id="mainError" class="content commonErrorMsg hide">
 			<span>Please fill the all required fields below.</span>
 		</div>
-		<div class="successfulSubmission hide">
+		<div class="successfulMsg hide">
 			<span>Thank you for reaching out to us! We will get back to you shortly.</span>
 		</div>
-		<div class="table1">
+		<div class="table">
 			<form class="contactForm" name="contactForm" id="contactForm">
 				<div class="row">
 					<span class="cell label">My Name:</span>
@@ -135,7 +135,7 @@
 					<span class="cell inputCell">
 						<input type="email" name="meMail" onchange="validateMail(this)" class="input contactInput Required">
 						<span class="required">*</span>
-						<span id="error1" class="errorMsg hide">MailId is required</span>
+						<span class="errorMsg hide">MailId is required</span>
 						<span class="validation"></span>
 					</span>
 				</div>
@@ -150,7 +150,7 @@
 					<span class="cell inputCell">
 						<input type="text" name="org" class="input contactInput Required">
 						<span class="required">*</span>
-						<span id="error2" class="errorMsg hide">Organization Name is required</span>
+						<span class="errorMsg hide">Organization Name is required</span>
 					</span>
 				</div>
 				<div class="row">
@@ -202,7 +202,7 @@
 						<option value="West Bengal">West Bengal</option>
 						</select>
 						<span class="required">*</span>
-						<span id="error2" class="errorMsg hide">State is required</span>
+						<span class="errorMsg hide">State is required</span>
 					</span>
 				</div>
 				<div class="row">
@@ -236,23 +236,22 @@
 				</div>
 				<div class="full-row">
 					<span class="colspan">
-						<b>Tell Us More About Your Organization:</b><br>
+						<p class="label">Tell Us More About Your Organization:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
 					</span>
 				</div>
 				<div class="full-row">
 					<span class="colspan">
-						<b>What I'd really like to know is:</b><br>
+						<p class="label">What I'd really like to know is:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
 					</span>
 				</div>
 				<div class="full-row">
 					<span class="colspan">
-						<button id="sendButton">Send Message</button>
-						<button id="clearButton">Clear Form</button>
+						<input id='sendButton' type='button' onclick="requirementsCheck()" name='submitButton' value="Send message">
+						<input id='submitCareersForm' onclick="clearForm()" type='button' name='submitButton' value="Clear Form">
 					</span>
 				</div>
-				
 			</form>
 		</div>		
 	</div>
