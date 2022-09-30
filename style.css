@@ -1,4 +1,4 @@
-.body1 {
+.body {
 	background-image: url("background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -14,7 +14,7 @@
 	font-family: Arial;
 }
 
-.cornerNav {
+.topNav {
 	margin-right: 0;
 	margin-left: auto;
 	background-color: rgba(22, 44, 65,0.7);
@@ -24,7 +24,7 @@
 .link{
 	text-decoration: none;
 }
-.cornerNav .navigation {
+.topNav .navigation {
 	display: flex;
 	font-size: 10px;
 	margin: 0;
@@ -32,14 +32,14 @@
 	list-style-type: none;
 	align-items: center;
 }
-.cornerNav .item {
+.topNav .item {
 	padding: 3px 6px;
 }
-.cornerNav .separator {
+.topNav .separator {
 	border-left: 1px solid rgb(165, 203, 252);
 	height: 10px;
 }
-.cornerNav .navigation .item .link{
+.topNav .navigation .item .link{
 	color: white;
 }
 
