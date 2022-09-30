@@ -1,4 +1,4 @@
-.body1 {
+.body {
 	margin: 0;
 }
 .navContainer {
@@ -7,7 +7,7 @@
 	display: flex;
 }
 
-.nav{
+.navigation{
 	display: flex;
 	list-style: none;
 	margin: 0px 0px 0px 15px;
@@ -50,16 +50,17 @@
 
 .heading {
 	background-color: rgb(51,153,204);
-	height: 100px;
+	max-height: 110px;
+	padding: 32px 16px;
 	font-family: "Century Gothic";
+	overflow: hidden;
 }
 
 .heading .title{
 	margin: 0;
 	float: left;
-	padding: 20px 30px;
-	font-size: 48px;
-	font-weight: 100;
+	padding: 5px 8px;
+	font-size: 35px;
 	color: white;
 }
 
@@ -97,14 +98,15 @@
 }
 
 .careers {
-	margin: 5px 20px 0px 20px;
+	margin: 5px 20px 0px 36px;
 }
-.content,.content-heading{
+.content,.contentHeading{
 	color: black;
 	font-family: "Century Gothic";
 }
 
 .careers .button{
+	font-weight: bold;
 	font-size: 16px;
 	padding: 8px 30px 8px 15px;
 	background-color: rgb(238, 238, 238);
@@ -112,19 +114,20 @@
 	border-radius: 2px;
 }
 
-.careers .table1{
+.careers .table{
 	display: table;
 	margin: 15px 15px 0px 15px;
+	font-family: "Arial";
 }
-.careers .table1 .row{
+.careers .table .row{
 	display: table-row;
 }
-.careers .table1 .row .cell{
+.careers .table .row .cell{
 	display: table-cell;
 	padding: 10px;
 	
 }
-.careers .table1 .row .cell .input{
+.careers .table .row .cell .input{
 	padding: 8px;
 }
 .careers .label{
@@ -144,17 +147,19 @@
 .contact {
 	margin: 5px 20px 0px 20px;
 }
-.contact .table1{
+.contact .table{
 	display: table;
 	margin: 15px 15px 0px 15px;
+	font-family: "Arial";
 }
-.contact .table1 .row{
+.contact .table .row{
 	display: table-row;
 }
-.contact .table1 .row .cell{
+.contact .table .row .cell{
 	display: table-cell;
+	padding: 10px;
 }
-.contact .table1 .row .cell .input,.select{
+.contact .table .row .cell .input,.select{
 	padding: 5px;
 	width: 260px;
     height: 40px;
@@ -162,14 +167,6 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
-.contact .table1 .contactRadio {
-	height: auto;
-	width: auto;
-}
-
-.contact .table1 .row .cell{
-	padding: 10px;
 }
 
 .contact .required,.errorMsg,.validation {
