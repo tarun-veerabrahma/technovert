@@ -18,22 +18,21 @@ function fileName() {
 	document.getElementById("filename").value = document.getElementById("files").value;
 }
 
-document.getElementById("submit").onclick=function(event){careersFormValidation(event)};
-function careersFormValidation(event){
-	event.preventDefault();
-	var form=document.forms["careerForm"];
-	var required_list=document.forms["careerForm"].getElementsByClassName("required")
-	for(var i=0; i< required_list.length;i++){
-		if(required_list[i].value=="")
+
+function careersFormValidation(){
+	var careersForm=document.forms["careerForm"];
+	var requiredElements=document.forms["careerForm"].getElementsByClassName("required")
+	for(var i=0; i< requiredElements.length;i++){
+		if(requiredElements[i].value=="")
 		{
-			form.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.remove("hide");
+			careersForm.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.remove("hide");
 			break;
 		}
 	}
-	if(i == required_list.length){
-		form.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.add("hide");
-		form.classList.add("hide");
-		form.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
+	if(i == requiredElements.length){
+		careersForm.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.add("hide");
+		careersForm.classList.add("hide");
+		careersForm.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
 	}
 }
 
@@ -41,26 +40,21 @@ function careersFormValidation(event){
 //Contact Us
 var validationFlag=0;
 //ClearForm JavaScript
-document.getElementById("clearButton").onclick=function(event){clearForm(event)};
-function clearForm(event) {
-	var input_fields = document.getElementsByClassName("contactInput");
-	event.preventDefault();
-	for(let i=0; i<input_fields.length; i++){
-		if(input_fields[i].value != "")
+function clearForm() {
+	var inputFields = document.getElementsByClassName("contactInput");
+	for(let i=0; i<inputFields.length; i++){
+		if(inputFields[i].value != "")
 		{
-			input_fields[i].value = "";
+			inputFields[i].value = "";
 		}
 	}
-	var radio_buttons=document.getElementsByClassName("contactRadio");
-	for(let i=0; i<radio_buttons.length; i++){
-		if(radio_buttons[i].checked == true)
-		{
-			radio_buttons[i].checked = false;
-		}
+	var radioButtons= document.querySelectorAll('input[type=radio]:checked');
+	for(let i=0; i<radioButtons.length;i++){
+		radioButtons[i].checked=false;
 	}
-	var error_msg=document.getElementsByClassName("errorMsg");
-	for(let i=0;i<error_msg.length;i++){
-		error_msg[i].classList.add("hide");
+	var errorMsg=document.getElementsByClassName("errorMsg");
+	for(let i=0;i<errorMsg.length;i++){
+		errorMsg[i].classList.add("hide");
 	}
 	document.getElementsByClassName("validation")[0].innerHTML="";
 }
@@ -69,10 +63,10 @@ function clearForm(event) {
 //PromoCode JavaScript
 
 function setPromoBoxValue(){
-	var state_value = document.getElementById("state").value;
-	if(state_value != "")
+	var stateValue = document.getElementById("state").value;
+	if(stateValue != "")
 	{
-		document.getElementById("promoCode").value = state_value+"-PROMO";
+		document.getElementById("promoCode").value = stateValue+"-PROMO";
 	}
 	else{
 		document.getElementById("promoCode").value = "";
@@ -82,25 +76,24 @@ function setPromoBoxValue(){
 
 
 //RequirementsCheck JavaScript
-document.getElementById("sendButton").onclick=function(event){requirementsCheck(event)};
-function requirementsCheck(event){
-	event.preventDefault();
-	var required_elements = document.getElementsByClassName("Required");
+
+function requirementsCheck(){
+	var requiredElements = document.getElementsByClassName("Required");
 	let flag=0;
 	var temp;
-	for(let i=0;i<required_elements.length;i++){
-		temp=required_elements[i].parentElement;
-		let error_msg=t.querySelector(".errorMsg");
-		if(required_elements[i].value=="")
+	for(let i=0;i<requiredElements.length;i++){
+		temp=requiredElements[i].parentElement;
+		let errorMsg=temp.querySelector(".errorMsg");
+		if(requiredElements[i].value=="")
 		{
-			if(error_msg.classList.contains("hide")){
-				error_msg.classList.remove("hide");
+			if(errorMsg.classList.contains("hide")){
+				errorMsg.classList.remove("hide");
 			}
 			flag=1;
 		}
 		else{
-			if(!error_msg.classList.contains("hide")){
-				error_msg.classList.add("hide");
+			if(!errorMsg.classList.contains("hide")){
+				errorMsg.classList.add("hide");
 			}
 		}
 	}
@@ -114,15 +107,15 @@ function requirementsCheck(event){
 //Email Validation
 function validateMail(input){
 	var email = document.forms["contactForm"]["meMail"].value;
-	var valid = input.parentNode.getElementsByClassName("validation")[0];
+	var validationField = input.parentNode.getElementsByClassName("validation")[0];
 
 	let pattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$";
 	if(!email.match(pattern)){
-		valid.innerHTML = "Invalid Email!";
+		validationField.innerHTML = "Invalid Email!";
 		validationFlag=1;
 	}
 	else{
-		valid.innerHTML="";
+		validationField.innerHTML="";
 		validationFlag=0;
 	}
 }
