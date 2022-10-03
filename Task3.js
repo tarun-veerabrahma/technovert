@@ -77,7 +77,7 @@ function setPromoBoxValue(){
 
 //RequirementsCheck JavaScript
 
-function requirementsCheck(){
+function contactFormValidation(){
 	var requiredElements = document.getElementsByClassName("Required");
 	let flag=0;
 	var temp;
