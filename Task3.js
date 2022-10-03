@@ -32,7 +32,7 @@ function careersFormValidation(){
 	if(i == requiredElements.length){
 		careersForm.parentNode.parentNode.querySelector("p.commonErrorMsg").classList.add("hide");
 		careersForm.classList.add("hide");
-		careersForm.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
+		careersForm.parentNode.parentNode.querySelector("p.content").innerHTML="Thank you for showing interest. Will get back to you shortly.";
 	}
 }
 
@@ -78,9 +78,13 @@ function setPromoBoxValue(){
 //RequirementsCheck JavaScript
 
 function contactFormValidation(){
-	var requiredElements = document.getElementsByClassName("Required");
+	var requiredElements = document.getElementsByClassName("requiredField");
 	let flag=0;
 	var temp;
+	if(document.forms["contactForm"]["email"].value == ""){
+		let msg = document.forms["contactForm"]["email"].parentNode.querySelector(".emailValidationMsg");
+		msg.innerHTML = "";
+	}
 	for(let i=0;i<requiredElements.length;i++){
 		temp=requiredElements[i].parentElement;
 		let errorMsg=temp.querySelector(".errorMsg");
@@ -99,7 +103,7 @@ function contactFormValidation(){
 	}
 	if(!flag && !validationFlag){
 		document.getElementsByClassName("contactForm")[0].classList.add("hide");
-		document.getElementsByClassName("successfulSubmission")[0].classList.remove("hide");			
+		document.getElementsByClassName("successMsg")[0].classList.remove("hide");			
 	}
 }
 
@@ -113,6 +117,13 @@ function validateMail(input){
 	if(!email.match(pattern)){
 		validationField.innerHTML = "Invalid Email!";
 		validationFlag=1;
+		if(email!=""){
+			let msg = document.forms["contactForm"]["email"].parentNode.querySelector(".errorMsg");
+			console.log(msg);
+			if(!msg.classList.contains("hide")){
+				msg.classList.add("hide");
+			}
+		}
 	}
 	else{
 		validationField.innerHTML="";
