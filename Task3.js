@@ -5,7 +5,7 @@ presentPage=defaultPage;
 
 function changePage(This,calledPage) {
 	document.getElementsByClassName("active")[0].classList.remove("active");
-	document.getElementById(This).classList.add("active");
+	This.classList.add("active");
 	document.getElementById(presentPage).classList.add("hide");
 	document.getElementById(calledPage).classList.remove("hide");
 	presentPage=calledPage;
@@ -14,7 +14,7 @@ function changePage(This,calledPage) {
 
 
 //Careers
-function fileName() {
+function getFileName() {
 	document.getElementById("filename").value = document.getElementById("files").value;
 }
 
@@ -48,7 +48,7 @@ function clearForm() {
 			inputFields[i].value = "";
 		}
 	}
-	var radioButtons= document.querySelectorAll('input[type=radio]:checked');
+	var radioButtons= document.querySelectorAll('#contactForm input[type=radio]:checked');
 	for(let i=0; i<radioButtons.length;i++){
 		radioButtons[i].checked=false;
 	}
@@ -97,7 +97,7 @@ function contactFormValidation(){
 			}
 		}
 	}
-	if(flag==0 && validationFlag==0){
+	if(!flag && !validationFlag){
 		document.getElementsByClassName("contactForm")[0].classList.add("hide");
 		document.getElementsByClassName("successfulSubmission")[0].classList.remove("hide");			
 	}
@@ -106,8 +106,8 @@ function contactFormValidation(){
 
 //Email Validation
 function validateMail(input){
-	var email = document.forms["contactForm"]["meMail"].value;
-	var validationField = input.parentNode.getElementsByClassName("validation")[0];
+	var email = document.forms["contactForm"]["email"].value;
+	var validationField = input.parentNode.getElementsByClassName("emailValidationMsg")[0];
 
 	let pattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$";
 	if(!email.match(pattern)){
