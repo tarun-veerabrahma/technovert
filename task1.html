@@ -15,7 +15,7 @@
 	<div class="navContainer">
 		<ul class="navigation">
 			<li class="link active" id="homeNav" onclick="changePage('homeNav','home')">Home</li>
-			<li class="link" id="servicesNav" onclick="changePage('servicesNav','')">Services</li>
+			<li class="link" id="servicesNav" onclick="changePage('servicesNav','empty')">Services</li>
 			<li class="link" id="careersNav" onclick="changePage('careersNav','careers')">Careers</li>
 			<li class="link" id="contactNav" onclick="changePage('contactNav','contact')">Contact</li>
 		</ul>
@@ -24,7 +24,7 @@
 
 	
 	<!--Home Page-->
-	<div class="page home" id="home">
+	<div class="home page" id="home">
 		<div class="news">
 			<h2 class="contentHeading">News</h2>
 			<ul class="list">
@@ -56,8 +56,8 @@
 	</div>
 
 	<!--Careers Page-->
-	<div class="page careers hide" id="careers">
-		<h1 class="content-heading">Careers at Technovert</h1>
+	<div class="careers page hide" id="careers">
+		<h1 class="contentHeading">Careers at Technovert</h1>
 		<p class="content">
 			We are looking for smart people who love fiddling with code and pour their heart into it. If you are one, wwe would like to talk to you. Please fill the form below and we will get back to you.
 		</p>
@@ -101,9 +101,12 @@
 		</div>
 	</div>
 
+	<!--Empty Page-->
+	<div class="empty page hide"></div>
+
 
 	<!--Contact Page-->
-	<div class="page contact hide" id="contact">
+	<div class="contact page hide" id="contact">
 		<h1 class="contentHeading">Contact Us</h1>
 		<div id="mainError" class="content commonErrorMsg hide">
 			<span>Please fill the all required fields below.</span>
@@ -136,7 +139,7 @@
 						<input type="email" name="meMail" onchange="validateMail(this)" class="input contactInput Required">
 						<span class="required">*</span>
 						<span class="errorMsg hide">MailId is required</span>
-						<span class="validation"></span>
+						<span class="emailValidationMsg"></span>
 					</span>
 				</div>
 				<div class="row">
@@ -222,7 +225,7 @@
 						<input type="text" name="promoCode" class="input contactInput" id="promoCode">
 					</span>
 				</div>
-				<div class="full-row">
+				<div class="fullRow">
 					<span class="colspan" colspan="2">
 						<h3 class="subHeading">Optional Information</h3>
 						<i>This information is optional but it helpsus to serve you better.</i>
@@ -234,22 +237,22 @@
 						<input type="text" name="webAddr" class="input contactInput">
 					</span>
 				</div>
-				<div class="full-row">
+				<div class="fullRow">
 					<span class="colspan">
 						<p class="label">Tell Us More About Your Organization:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
 					</span>
 				</div>
-				<div class="full-row">
+				<div class="fullRow">
 					<span class="colspan">
 						<p class="label">What I'd really like to know is:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
 					</span>
 				</div>
-				<div class="full-row">
+				<div class="fullRow">
 					<span class="colspan">
-						<input id='sendButton' type='button' onclick="requirementsCheck()" name='submitButton' value="Send message">
-						<input id='submitCareersForm' onclick="clearForm()" type='button' name='submitButton' value="Clear Form">
+						<input id='sendButton' type='button' onclick="contactFormValidation()" name='submitButton' value="Send message">
+						<input id='clearForm' onclick="clearForm()" type='button' name='clearButton' value="Clear Form">
 					</span>
 				</div>
 			</form>
