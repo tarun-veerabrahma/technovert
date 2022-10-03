@@ -169,7 +169,7 @@
     box-sizing: border-box;
 }
 
-.contact .required,.errorMsg,.validation {
+.contact .required,.errorMsg,.emailValidationMsg {
 	color: red;
 }
 .commonErrorMsg {
