@@ -14,30 +14,29 @@
 
 	<div class="navContainer">
 		<ul class="navigation">
-			<li class="link active" id="homeNav" onclick="changePage('homeNav','home')">Home</li>
-			<li class="link" id="servicesNav" onclick="changePage('servicesNav','empty')">Services</li>
-			<li class="link" id="careersNav" onclick="changePage('careersNav','careers')">Careers</li>
-			<li class="link" id="contactNav" onclick="changePage('contactNav','contact')">Contact</li>
+			<li class="link active" id="homeNav" onclick="changePage(this,'home')">Home</li>
+			<li class="link" id="servicesNav" onclick="changePage(this,'empty')">Services</li>
+			<li class="link" id="careersNav" onclick="changePage(this,'careers')">Careers</li>
+			<li class="link" id="contactNav" onclick="changePage(this,'contact')">Contact</li>
 		</ul>
-		<img class="rightChild" src="blog-icon.jpg"/>
+		<img class="rightChild" src="blogIcon.jpg"/>
 	</div>
 
 	
 	<!--Home Page-->
 	<div class="home page" id="home">
 		<div class="news">
-			<h2 class="contentHeading">News</h2>
+			<h2 class="newsHeading">News</h2>
 			<ul class="list">
-				<li class="point">Technovert is now Microsoft partner in Information Security Solutions</li>
+				<li class="item">Technovert is now Microsoft partner in Information Security Solutions</li>
 				
-				<li class="point">We deliver one of the largest book information stores in the world</li>
+				<li class="item">We deliver one of the largest book information stores in the world</li>
 
-				<li class="point">Our team delivered the first Windows 8 Metro style application for the Windows Phone group at Microsoft</li>
+				<li class="item">Our team delivered the first Windows 8 Metro style application for the Windows Phone group at Microsoft</li>
 
-				<li class="point">Technovert partners with a strategic technology CTO group</li>
+				<li class="item">Technovert partners with a strategic technology CTO group</li>
 			</ul>
 		</div>
-		<br>
 		<div class="content">
 			<h2>Welcome!</h2>
 			<p>
@@ -64,45 +63,45 @@
 		
 		<p class="commonErrorMsg hide">Please fill all the details!</p>
 		<div class="table">
-			<form class="careerForm" name="careerForm" onsubmit="careersFormValidation()">
+			<form class="careerForm" name="careerForm">
 				<div class="row">
 					<span class="cell label">Name</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" class="input required" name="name">
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">Email</span>
-					<span class="cell inputCell">
-						<input type="Email" class="input required" name="email">
-					</span>
+					<div class="cell inputCell">
+						<input type="text" class="input required" name="email">
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">Desired Role</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" class="input required" name="role">
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">Upload Resume</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" class="input required" id="filename" name="txt" readonly>
 						<label for='files' class='button'>Browse..</label>
-						<input id='files' onchange="fileName()" class='input hidden' type='file' name='file' >
-					</span>
+						<input id='files' onchange="getFileName()" class='input hidden' type='file' name='file' >
+					</div>
 				</div>
-				<div class="row">
+				<div class="row lastRow">
 					<span class="cell label"></span>
-					<span class="cell inputCell">
+					<div class="cell inputCell secondCell">
 						<input id='submitCareersForm' onclick="careersFormValidation()" class='button' type='button' name='submitButton' value="Submit">
-					</span>
+					</div>
 				</div>
 			</form>	
 		</div>
 	</div>
 
 	<!--Empty Page-->
-	<div class="empty page hide"></div>
+	<div class="empty page hide" id="empty"></div>
 
 
 	<!--Contact Page-->
@@ -111,61 +110,65 @@
 		<div id="mainError" class="content commonErrorMsg hide">
 			<span>Please fill the all required fields below.</span>
 		</div>
-		<div class="successfulMsg hide">
+		<div class="successMsg hide">
 			<span>Thank you for reaching out to us! We will get back to you shortly.</span>
 		</div>
 		<div class="table">
 			<form class="contactForm" name="contactForm" id="contactForm">
 				<div class="row">
 					<span class="cell label">My Name:</span>
-					<span class="cell inputCell">
-						<input type="text" name="myName" class="input contactInput Required">
+					<div class="cell inputCell">
+						<input type="text" name="name" class="input contactInput requiredField">
 						<span class="required">*</span>
 						<span class="errorMsg hide">Name is required</span>
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My Gender:</span>
-					<span class="cell inputCell">
-						<input type="radio" id="Male" onclick="alert('Hello Sir!');" class="contactRadio" name="gender" value="Male">
-						<label for="Male">Male</label><br>
-						<input type="radio" id="Female" onclick="alert('Hello Madam!');" class="contactRadio" name="gender" value="Female">
-						<label for="Female">Female</label><br>
-					</span>
+					<div class="cell inputCell">
+						<div>
+							<input type="radio" id="Male" onclick="alert('Hello Sir!');" class="contactRadio" name="gender" value="Male">
+							<label for="Male">Male</label>
+						</div>
+						<div>
+							<input type="radio" id="Female" onclick="alert('Hello Madam!');" class="contactRadio" name="gender" value="Female">
+							<label for="Female">Female</label>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My Email Address:</span>
-					<span class="cell inputCell">
-						<input type="email" name="meMail" onchange="validateMail(this)" class="input contactInput Required">
+					<div class="cell inputCell">
+						<input type="email" name="email" onchange="validateMail(this)" class="input contactInput requiredField">
 						<span class="required">*</span>
 						<span class="errorMsg hide">MailId is required</span>
 						<span class="emailValidationMsg"></span>
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My Telephone Number:</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="tel" name="telphone" class="input contactInput">
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My Organization Name:</span>
-					<span class="cell inputCell">
-						<input type="text" name="org" class="input contactInput Required">
+					<div class="cell inputCell">
+						<input type="text" name="org" class="input contactInput requiredField">
 						<span class="required">*</span>
 						<span class="errorMsg hide">Organization Name is required</span>
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My City:</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" name="city" class="input contactInput">
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My State or Province:</span>
-					<span class="cell inputCell">
-						<select name="state" onclick="setPromoBoxValue()" id="state" class="select contactInput Required">
+					<div class="cell inputCell">
+						<select name="state" onclick="setPromoBoxValue()" id="state" class="select contactInput requiredField">
 						<option value="">Select State or Province</option>
 						<option value="Andhra Pradesh">Andhra Pradesh</option>
 						<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -206,54 +209,60 @@
 						</select>
 						<span class="required">*</span>
 						<span class="errorMsg hide">State is required</span>
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">Please Contact Me By:</span>
-					<span class="cell inputCell">
-						<input type="radio" id="Email" class="contactRadio" name="preferedContact" value="Email">
-						<label for="Email">Email</label><br>
-						<input type="radio" id="Phone" class="contactRadio" name="preferedContact" value="Phone">
-						<label for="Phone">Phone</label><br>
-						<input type="radio" id="Both" class="contactRadio" name="preferedContact" value="Both">
-						<label for="Both">Both</label>
-					</span>
+					<div class="cell inputCell">
+						<div>
+							<input type="radio" id="Email" class="contactRadio" name="preferedContact" value="Email">
+							<label for="Email">Email</label>
+						</div>
+						<div>
+							<input type="radio" id="Phone" class="contactRadio" name="preferedContact" value="Phone">
+							<label for="Phone">Phone</label>
+						</div>
+						<div>
+							<input type="radio" id="Both" class="contactRadio" name="preferedContact" value="Both">
+							<label for="Both">Both</label>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">Promotion Code:</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" name="promoCode" class="input contactInput" id="promoCode">
-					</span>
+					</div>
 				</div>
 				<div class="fullRow">
-					<span class="colspan" colspan="2">
+					<div class="colspan" colspan="2">
 						<h3 class="subHeading">Optional Information</h3>
 						<i>This information is optional but it helpsus to serve you better.</i>
-					</span>
+					</div>
 				</div>
 				<div class="row">
 					<span class="cell label">My Website Address is:</span>
-					<span class="cell inputCell">
+					<div class="cell inputCell">
 						<input type="text" name="webAddr" class="input contactInput">
-					</span>
+					</div>
 				</div>
 				<div class="fullRow">
-					<span class="colspan">
+					<div class="colspan">
 						<p class="label">Tell Us More About Your Organization:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
-					</span>
+					</div>
 				</div>
 				<div class="fullRow">
-					<span class="colspan">
+					<div class="colspan">
 						<p class="label">What I'd really like to know is:</p>
 						<textarea rows="5" cols="60" class="contactInput"></textarea>
-					</span>
+					</div>
 				</div>
 				<div class="fullRow">
-					<span class="colspan">
+					<div class="colspan">
 						<input id='sendButton' type='button' onclick="contactFormValidation()" name='submitButton' value="Send message">
 						<input id='clearForm' onclick="clearForm()" type='button' name='clearButton' value="Clear Form">
-					</span>
+					</div>
 				</div>
 			</form>
 		</div>		
