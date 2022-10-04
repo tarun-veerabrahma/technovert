@@ -64,13 +64,7 @@ function clearForm() {
 
 function setPromoBoxValue(){
 	var stateValue = document.getElementById("state").value;
-	if(stateValue != "")
-	{
-		document.getElementById("promoCode").value = stateValue+"-PROMO";
-	}
-	else{
-		document.getElementById("promoCode").value = "";
-	}
+	(stateValue != "")? document.getElementById("promoCode").value = stateValue+"-PROMO": document.getElementById("promoCode").value = "";
 }
 
 
