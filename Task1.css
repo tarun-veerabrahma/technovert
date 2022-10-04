@@ -59,7 +59,7 @@
 .heading .title{
 	margin: 0;
 	float: left;
-	padding: 5px 8px;
+	padding: 4px 8px;
 	font-size: 36px;
 	color: white;
 	font-weight: 300;
@@ -75,11 +75,12 @@
 	font-size: 13.64px;
 	width: fit-content;
 }
-.home .news .contentHeading{
+.home .news .newsHeading{
 	text-transform: uppercase;
 	margin: 0;
 }
 .home .news .list {
+	list-style: "-";
 	margin: 0;
 	padding: 5px 15px;
 }
