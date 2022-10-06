@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Address Book</title>
+	<link rel="stylesheet" href="AddressBook.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="AddressBook.js" defer></script>
+</head>
+<body class="body">
+	<div class="heading">
+		<span class="title">Address Book</span>
+	</div>
+
+	<div class="navContainer">
+		<ul class="navigation">
+			<li class="link active" id="homeNav">Home</li>
+			<li class="link" id="addNav">+Add</li>
+		</ul>
+		<img class="rightChild" src="blog-icon.jpg"/>
+	</div>
+	<div class="pagesContainer">
+		<div class="home page">
+			<div class="contactTileSection">
+				<h3 class="subHeading">Contacts</h3>
+			</div>
+
+			<div class="detailsSection">
+				<div class="contactDetails">
+					<div><span class="name"></span></div>
+					<div><span class="email"></span></div>
+					<div class="phone">
+						<span class="mobile"></span><br>
+						<span class="landline"></span>
+					</div>
+					<div><span class="website"></span></div>
+					<div class="address">
+						<div><label class="label">Address:</label></div>
+						<div><span class="addrValue"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="addContainer page hide">
+			<div class="add">
+				<form name="addContact" id="addForm" class="form">
+					<div class="cell">
+						<p class="label"><label>Name</label></p>
+						<input type="text" class="inputField" name="contactName">
+					</div>
+					<div class="cell">
+						<p class="label"><label>Email</label></p>
+						<input type="email" class="inputField" name="mailId">
+					</div>
+					<div class="row">
+						<div class="cell">
+							<p class="label"><label>Mobile</label></p>
+							<input type="tel" class="inputField" name="contactMobile">
+						</div>
+						<div class="cell">
+							<p class="label"><label>Landline</label></p>
+							<input type="tel" class="inputField" name="contactLandline">
+						</div>
+					</div>
+					<div class="cell">
+						<p class="label"><label>Website</label></p>
+						<input type="text" class="inputField" name="contactWebsite">
+					</div>
+					<div class="cell">
+						<p class="label"><label>Address</label></p>
+						<textarea name="contactAddress" class="inputField" rows="4"></textarea>
+					</div>
+				
+				</form>
+				<div class="button rightChild">
+					<input type="submit" class="button" name="add" value="Add">
+				</div>
+			</div>
+		</div>
+	</div>
+		
+</body>
+</html>

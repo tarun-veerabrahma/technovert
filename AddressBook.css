@@ -1,0 +1,188 @@
+.body {
+	margin: 0;
+}
+.navContainer {
+	background-color: rgb(51, 51, 51);
+	overflow: hidden;
+	display: flex;
+	padding: 0px 12px;
+}
+
+.navigation{
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navContainer .link {
+	color: #fffff0;
+	font: status-bar;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 4px 12px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: inherit;
+	background-color: rgb(51, 51, 51);
+	border-left: 4px solid rgb(51, 51, 51);
+	margin-right: 2px;
+}
+.navContainer .link.active {
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+.navContainer .link:hover{
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+
+.navContainer .rightChild {
+	margin-right: 12px;
+	margin-left: auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-radius: 4px;
+}
+
+
+.heading {
+	background-color: rgb(51,153,204);
+	max-height: 110px;
+	padding: 24px 16px;
+	overflow: hidden;
+}
+
+.heading .title{
+	margin: 0px 8px;
+	float: left;
+	padding: 0;
+	font-size: 48px;
+	font-family: "Century Gothic";
+	color: white;
+	font-weight: 300;
+}
+
+.page {
+	padding: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.pagesContainer{
+	position: relative;
+}
+
+.home{
+	display: flex;
+	position: absolute;
+	width: 100%;
+}
+.contactTileSection{
+	padding: 0px 20px;
+	width: 30%;
+}
+.contactTileSection .subHeading{
+	text-transform: uppercase;
+}
+.contactTileSection .contactTile{
+	border: 1px solid black;
+	padding: 5px;
+}
+.contactTileSection .contactTile >*{
+	padding: 5px;
+}
+.contactTileSection .contactTile .name{
+	font-size: 28px;
+}
+.contactTile.active, .contactTile:hover{
+	background-color: rgb(206, 231, 242);
+	color: black;
+}
+
+.detailsSection{
+	font-family: "Century Gothic";
+	padding: 20px;
+	width: 70%;
+}
+.detailsSection .contactDetails{
+	padding: 20px 50px;
+}
+.detailsSection .contactDetails >*{
+	padding: 10px 0px;
+}
+.detailsSection .name{
+	font-size: 36px;
+	font-weight: bold;
+
+}
+
+.detailsSection .contactDetails .address {
+	display: inline-flex;
+}
+
+.addContainer{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.03);
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	height: fit-content;
+}
+.add{
+	margin-left: 32%;
+	margin-top: 15px;
+	z-index: 2;
+	width: 50%;
+	box-shadow: 0px 0px 20px 5px;
+	padding: 10px;
+	background-color: rgb(255, 255, 255);
+	overflow-y: auto;
+
+}
+
+.add .form{
+	width: 80%;
+}
+.add .inputField{
+	width: 100%;
+	display: block;
+	padding: 8px 0px;
+	font-size: 14px;
+}
+.add .cell{
+	padding: 0 15px;
+}
+.add .label{
+	margin-bottom: 0;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 14px;
+}
+.add .row{
+	display: flex;
+}
+.add .row .cell{
+	width: 50%;
+}
+.add .rightChild{
+	width: 20%;
+	margin: 10px 10px 0 0;
+	float: right;
+}
+.add .rightChild .button{
+	margin-left: 0;
+	padding: 5px 30px;
+	font-size: 14px;
+}
+
+.hide{
+	display: none;
+}
+.disable{
+	pointer-events: none;
+}
+
+.addContainer.active{
+	display: block;
+}
