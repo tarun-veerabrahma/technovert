@@ -40,7 +40,7 @@
 }
 
 .navContainer .rightChild {
-	margin-right: 12;
+	margin-right: 12px;
 	margin-left: auto;
 	margin-top: 4px;
 	margin-bottom: 4px;
@@ -79,7 +79,7 @@
 	text-transform: uppercase;
 	margin: 0;
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: bold;
 	font-family: "Century Gothic";
 }
 .home .news .list {
@@ -91,11 +91,15 @@
 }
 .home .news .list .item{
 	padding: 8px 10px;
+	font-family: sans-serif;
 }
 .home .content {
 	font-size: 14px;
 	max-width: 1000px;
 	font-family: Arial;
+}
+.home .highlight{
+	margin-top: 32px;
 }
 
 .hide {
@@ -138,7 +142,7 @@
 	
 }
 .careers .table .row .cell .input{
-	padding: 8px 8px 0px 8px;
+	padding: 8px;
 }
 .careers .label{
 	font-weight: bold;
