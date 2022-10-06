@@ -29,44 +29,50 @@
 			<div class="logo">
 				<img src="logo.png">
 			</div>
-			<div class="outterContainer">
-				<div class="innerContainer">
+			<div class="navOutterContainer">
+				<div class="navInnerContainer">
 					<div class="mainNav">
 						<ul class="nav navigation">
 							<li class="item active" id='home-item'>
-								<a class="link" href="#" onclick="changePage('home','home-item')">HOME</a>
+								<a class="link" href="#" onclick="changePage(this,'home')">HOME</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='about-item'>
-								<a class="link" href="#" onclick="changePage('','about-item')">ABOUT FTZWS</a>
+								<a class="link" href="#" onclick="changePage(this)">ABOUT FTZWS</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='ourServices-item'>
-								<a class="link" id="ourServices-link" href="#" onclick="changePage('ourServices','ourServices-item')">OUR SERVICES</a>
+								<a class="link" id="ourServices-link" href="#" onclick="changePage(this,'ourServices')">OUR SERVICES</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='ourClients-item'>
-								<a class="link" href="#" onclick="changePage('','ourClients-item')">OUR CLIENTS</a>
+								<a class="link" href="#" onclick="changePage(this)">OUR CLIENTS</a>
 							</li>
 							<li class="separator"></li>
 							<li class="item" id='contact-item'>
-								<a class="link" href="#" onclick="changePage('','contact-item')">CONTACT US</a>
+								<a class="link" href="#" onclick="changePage(this)">CONTACT US</a>
 							</li>
 						</ul>
+
+						<!--JS for nav-->
 						<script type="text/javascript">
 							var defaultPage = "home";
 							var presentPage;
 							presentPage=defaultPage;
 
-							function changePage(calledPage,This) {
+							function changePage(This, calledPage = '') {
 								document.getElementsByClassName("active")[0].classList.remove("active");
-								document.getElementById(This).classList.add("active");
+								This.parentNode.classList.add("active");
 								document.getElementById(presentPage).classList.add("hide");
-								document.getElementById(calledPage).classList.remove("hide");
-								presentPage=calledPage;
+								if(calledPage!=''){
+									document.getElementById(calledPage).classList.remove("hide");
+									presentPage=calledPage;
+								}
 
 							}
 						</script>
+
+
 					</div>
 				</div>
 			</div>
@@ -75,7 +81,7 @@
 			<!-- Home page-->
 			<div class="home page" id="home">
 				<div class="title">
-					<h1>BRINGING TECHNOLOGY<br>AND OPERATIONAL EXCELLENCE.</h1>
+					<h1>BRINGING TECHNOLOGY AND OPERATIONAL EXCELLENCE.</h1>
 				</div>
 				<div class="row m-0 content">
 					<div class="col-sm-4">
@@ -110,19 +116,19 @@
 
 
 			<!--Our Services Page-->
-			<div class="page hide" id="ourServices">
-				<div class="ourServices">
+			<div class="ourServices page hide" id="ourServices">
+				<div class="ourServicesBody">
 					<div class="row m-0">
-						<div class="col-sm-4 p-3 left">
+						<div class="col-sm-5 p-3 left">
 							<img src="person.png" class="image">
 							<img src="tiles.png" class="image">
-							<div class="leftBelow">
-								<a href="#" class="link">Technology Services</a><br>
-								<a href="#" class="link">Public Warehousing</a><br>
-								<a href="#" class="link">Yard Storage</a>
-							</div>
+							<ul class="leftBelow">
+								<li><a href="#" class="link">Technology Services</a></li>
+								<li><a href="#" class="link">Public Warehousing</a></li>
+								<li><a href="#" class="link">Yard Storage</a></li>
+							</ul>
 						</div>
-						<div class="col-sm-8 p-3 right">
+						<div class="col-sm-7 p-3 right">
 							<p class="subTitle">OUR SERVICES</p>
 							<p>
 								Our highly trained and experienced staff can handle even the most complex distribution needs. We've designed a package of benefits that work together to streamline your experience in the Miami Free Trade Zone. Tell us what you need and we'll provide it. Our primary services are <a href="#" class="link">Technology Services</a>, <a class="link" href="#">Public Warehousing</a> and <a class="link" href="#">Yard Storage</a>.
@@ -140,7 +146,7 @@
 								</ul>
 							</p>
 							<div class="help">
-								Want to see how FTZ World Services can help you?<br>
+								<p>Want to see how FTZ World Services can help you?</p>
 								<button onclick="#" class="button">
 									Request Someone to Contact You <span class="arrow">></span>
 								</button>
