@@ -51,7 +51,7 @@
 .heading {
 	background-color: rgb(51,153,204);
 	max-height: 110px;
-	padding: 24px 16px;
+	padding: 25px 16px;
 	overflow: hidden;
 }
 
@@ -76,24 +76,30 @@
 .home{
 	display: flex;
 	position: absolute;
-	width: 100%;
 }
 .contactTileSection{
-	padding: 0px 20px;
-	width: 30%;
+	padding: 0px 16px;
+	width: 396px;
 }
 .contactTileSection .subHeading{
 	text-transform: uppercase;
+	font-size: 16px;
 }
 .contactTileSection .contactTile{
-	border: 1px solid black;
+	border: 1px solid rgb(204, 204, 204);
 	padding: 5px;
 }
 .contactTileSection .contactTile >*{
-	padding: 5px;
+	padding: 0px 12px;
+	color: rgb(82, 82, 82);
 }
 .contactTileSection .contactTile .name{
 	font-size: 28px;
+}
+.contactTileSection .contactTile .details{
+	padding: 5px 0px 5px 18px;
+	font-size: 14px;
+	font-weight: ;
 }
 .contactTile.active, .contactTile:hover{
 	background-color: rgb(206, 231, 242);
@@ -102,43 +108,61 @@
 
 .detailsSection{
 	font-family: "Century Gothic";
-	padding: 20px;
-	width: 70%;
+	padding: 20px 0px 20px 20px;
+
+}
+.sectionDivider{
+	display: flex;
+}
+.sectionDivider .cell{
 }
 .detailsSection .contactDetails{
-	padding: 20px 50px;
+	padding: 16px 0px 20px 30px;
+
 }
 .detailsSection .contactDetails >*{
 	padding: 10px 0px;
 }
-.detailsSection .name{
+.detailsSection #name{
 	font-size: 36px;
-	font-weight: bold;
-
 }
 
 .detailsSection .contactDetails .address {
 	display: inline-flex;
 }
 
+.functionalitiesHolder{
+	display: flex;
+	position: relative;
+	right: 0;
+}
+
+.functionalitiesHolder .function {
+	display: flex;
+	float: right;
+	margin: 40px;
+}
+.functionalitiesHolder .function .image{
+	width: 15px;
+	height: 17px;
+	
+}
+
 .addContainer{
 	position: absolute;
-	background-color: rgba(0, 0, 0, 0.03);
 	z-index: 1;
-	width: 100%;
-	height: 100%;
 	height: fit-content;
+	padding-left: 428px;
 }
 .add{
-	margin-left: 32%;
-	margin-top: 15px;
+	margin-left: 25px;
+	margin-top: 10px;
 	z-index: 2;
-	width: 50%;
-	box-shadow: 0px 0px 20px 5px;
+	width: 684px;
+	box-shadow: 0px 0px 12px 5px rgb(155, 155, 155);
 	padding: 10px;
 	background-color: rgb(255, 255, 255);
 	overflow-y: auto;
-
 }
 
 .add .form{
@@ -159,6 +183,7 @@
 	font-family: Arial;
 	font-size: 14px;
 }
+
 .add .row{
 	display: flex;
 }
@@ -172,8 +197,72 @@
 }
 .add .rightChild .button{
 	margin-left: 0;
-	padding: 5px 30px;
+	padding: 10px 50px;
 	font-size: 14px;
+	font-size: 16px;
+	background-color: rgb(70, 140, 0);
+	color: white;
+	border: none;
+}
+
+.editContainer{
+	position: absolute;
+	z-index: 1;
+	height: 100%;
+	height: fit-content;
+	padding-left: 428px;
+}
+.edit{
+	margin-left: 25px;
+	margin-top: 10px;
+	z-index: 2;
+	width: 684px;
+	box-shadow: 0px 0px 12px 5px rgb(155, 155, 155);
+	padding: 10px;
+	background-color: rgb(255, 255, 255);
+	overflow-y: auto;
+}
+
+.edit .form{
+	width: 80%;
+}
+.edit .inputField{
+	width: 100%;
+	display: block;
+	padding: 8px 0px;
+	font-size: 14px;
+}
+.edit .cell{
+	padding: 0 15px;
+}
+.edit .label{
+	margin-bottom: 0;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+.edit .row{
+	display: flex;
+}
+.edit .row .cell{
+	width: 50%;
+}
+.edit .rightChild{
+	width: 20%;
+	margin: 10px 10px;
+	float: right;
+}
+.edit .rightChild .button{
+	margin-left: 0;
+	padding: 10px 50px;
+	font-size: 14px;
+	font-size: 16px;
+	border: none;
+}
+.edit .rightChild .button.save{
+	background-color: rgb(70, 140, 0);
+	color: white;
 }
 
 .hide{
