@@ -18,7 +18,7 @@
 			<li class="link active" id="homeNav">Home</li>
 			<li class="link" id="addNav">+Add</li>
 		</ul>
-		<img class="rightChild" src="blog-icon.jpg"/>
+		<img class="rightChild" src="images/blog-icon.jpg"/>
 	</div>
 	<div class="pagesContainer">
 		<div class="home page">
@@ -26,18 +26,30 @@
 				<h3 class="subHeading">Contacts</h3>
 			</div>
 
-			<div class="detailsSection">
-				<div class="contactDetails">
-					<div><span class="name"></span></div>
-					<div><span class="email"></span></div>
-					<div class="phone">
-						<span class="mobile"></span><br>
-						<span class="landline"></span>
+			<div class="detailsSection hide">
+				<div class="sectionDivider">
+					<div class="contactDetails">
+						<div><span id="name"></span></div>
+						<div><span id="email"></span></div>
+						<div class="phone">
+							<span id="mobile"></span><br>
+							<span id="landline"></span>
+						</div>
+						<div><span id="website"></span></div>
+						<div class="address">
+							<div><label class="label">Address:</label></div>
+							<div><span id="addrValue"></span></div>
+						</div>
 					</div>
-					<div><span class="website"></span></div>
-					<div class="address">
-						<div><label class="label">Address:</label></div>
-						<div><span class="addrValue"></span></div>
+					<div class="functionalitiesHolder">
+						<div id="edit" class="function">
+							<img src="images/edit1.jpg" class="image">
+							<label>Edit</label>
+						</div>
+						<div id="delete" class="function">
+							<img src="images/delete1.png" class="image" >
+							<label>Delete</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -47,7 +59,7 @@
 				<form name="addContact" id="addForm" class="form">
 					<div class="cell">
 						<p class="label"><label>Name</label></p>
-						<input type="text" class="inputField" name="contactName">
+						<input type="text" class="inputField" name="name">
 					</div>
 					<div class="cell">
 						<p class="label"><label>Email</label></p>
@@ -56,25 +68,64 @@
 					<div class="row">
 						<div class="cell">
 							<p class="label"><label>Mobile</label></p>
-							<input type="tel" class="inputField" name="contactMobile">
+							<input type="tel" class="inputField" name="mobile" required>
 						</div>
 						<div class="cell">
 							<p class="label"><label>Landline</label></p>
-							<input type="tel" class="inputField" name="contactLandline">
+							<input type="tel" class="inputField" name="landline">
 						</div>
 					</div>
 					<div class="cell">
 						<p class="label"><label>Website</label></p>
-						<input type="text" class="inputField" name="contactWebsite">
+						<input type="text" class="inputField" name="website">
 					</div>
 					<div class="cell">
 						<p class="label"><label>Address</label></p>
-						<textarea name="contactAddress" class="inputField" rows="4"></textarea>
+						<textarea name="address" class="inputField" rows="4"></textarea>
 					</div>
 				
 				</form>
-				<div class="button rightChild">
+				<div class="rightChild">
 					<input type="submit" class="button" name="add" value="Add">
+				</div>
+			</div>
+		</div>
+		<div class="editContainer page hide">
+			<div class="edit">
+				<form name="editContact" id="editForm" class="form">
+					<div class="cell">
+						<p class="label"><label>Name</label></p>
+						<input type="text" class="inputField" name="name">
+					</div>
+					<div class="cell">
+						<p class="label"><label>Email</label></p>
+						<input type="email" class="inputField" name="mailId">
+					</div>
+					<div class="row">
+						<div class="cell">
+							<p class="label"><label>Mobile</label></p>
+							<input type="tel" class="inputField" name="mobile" required>
+						</div>
+						<div class="cell">
+							<p class="label"><label>Landline</label></p>
+							<input type="tel" class="inputField" name="landline">
+						</div>
+					</div>
+					<div class="cell">
+						<p class="label"><label>Website</label></p>
+						<input type="text" class="inputField" name="website">
+					</div>
+					<div class="cell">
+						<p class="label"><label>Address</label></p>
+						<textarea name="address" class="inputField" rows="4"></textarea>
+					</div>
+				
+				</form>
+				<div class="rightChild">
+					<input type="submit" class="save button" id="save" name="add" value="Save">
+				</div>
+				<div class="rightChild">
+					<input type="button" class="cancel button" id="cancel" name="cancel" value="Cancel">
 				</div>
 			</div>
 		</div>
