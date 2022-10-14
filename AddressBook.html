@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Address Book</title>
 	<link rel="stylesheet" href="AddressBook.css">
+	<link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="AddressBook.js" defer></script>
 </head>
@@ -13,123 +15,116 @@
 		<span class="title">Address Book</span>
 	</div>
 
-	<div class="navContainer">
+	<div class="navigationContainer" id="navigationContainer">
 		<ul class="navigation">
-			<li class="link active" id="homeNav">Home</li>
-			<li class="link" id="addNav">+Add</li>
+			<li class="link active" id="home" onclick="changePage(this.id)">Home</li>
+			<li class="link" id="addContact" onclick="changePage(this.id)">+Add</li>
 		</ul>
 		<img class="rightChild" src="images/blog-icon.jpg"/>
 	</div>
-	<div class="pagesContainer">
+	<div class="pagesContainer" id="pagesContainer">
 		<div class="home page">
-			<div class="contactTileSection">
+			<div class="contactsSection" id="contactsSection">
 				<h3 class="subHeading">Contacts</h3>
+				<div class="contactTile" id="1">
+					<div><span class="name">Chandermani Arora</span></div>
+					<div class="details">
+						<div><span class="email">chandermani@technovert.com</span></div>
+						<div><span class="mobile">+91 9292929292</span></div>
+					</div>
+				</div>
 			</div>
 
-			<div class="detailsSection hide">
-				<div class="sectionDivider">
-					<div class="contactDetails">
-						<div><span id="name"></span></div>
-						<div><span id="email"></span></div>
-						<div class="phone">
-							<span id="mobile"></span><br>
+			<div class="rightSection">
+				<div class="contactDetailsSection" id="contactDetailsSection">
+					<div class="contactDetailsHeader">
+						<div class="contactDetail"><span id="name">Praveen Battula</span></div>
+						<div class="options">
+							<div id="editOption" class="option" onclick="editDetails(this.id)">
+								<img class="image" src="images/editIcon.jpg">
+								<label class="label">Edit</label>
+							</div>
+							<div id="deleteOption" class="option" onclick="deleteContact()">
+								<img class="image" src="images/deleteIcon.png">
+								<label class="label">Delete</label>
+							</div>
+						</div>
+					</div>
+					<div class="contactDetail">
+						<label class="label">Email: </label>
+						<span id="email"></span>
+					</div>
+					<div class="phone">
+						<div class="contactDetail">
+							<label class="label">Mobile: </label>
+							<span id="mobile"></span>
+						</div>
+						<div class="contactDetail">
+							<label class="label">Landline: </label>
 							<span id="landline"></span>
 						</div>
-						<div><span id="website"></span></div>
-						<div class="address">
-							<div><label class="label">Address:</label></div>
-							<div><span id="addrValue"></span></div>
+					</div>
+					<div class="contactDetail">
+						<label class="label">Website: </label>
+						<span id="website"></span>
+					</div>
+					<div class="contactDetail">
+						<label class="label">Address: </label>
+						<div><span id="address" class="address"></span></div>
+					</div>
+				</div>
+
+				<div class="formContainer page hide" id="formContainer">
+					<form name="contactDetailsForm" id="contactDetailsForm" class="form">
+						<div class="cell">
+							<label class="label">Name</label>
+							<input type="text" class="inputField" name="name">
+							<span class="validationMsg"></span>
+						</div>
+						<div class="cell">
+							<label class="label">Email</label>
+							<input type="text" class="inputField" name="email">
+							<span class="validationMsg"></span>
+						</div>
+						<div class="row">
+							<div class="cell">
+								<label class="label">Mobile</label>
+								<input type="text" class="inputField" name="mobile">
+								<span class="validationMsg"></span>
+							</div>
+							<div class="cell">
+								<label class="label">Landline</label>
+								<input type="text" class="inputField" name="landline">
+								<span class="validationMsg"></span>
+							</div>
+						</div>
+						<div class="cell">
+							<label class="label">Website</label>
+							<input type="text" class="inputField" name="website">
+							<span class="validationMsg"></span>
+						</div>
+						<div class="cell">
+							<label class="label">Address</label>
+							<textarea name="address" class="inputField" rows="4"></textarea>
+							<span class="validationMsg"></span>
+						</div>
+					</form>
+					<div id="addContactSectionButtons" class="buttons">
+						<div class="rightChild">
+							<button class="submit button" id="addButton" value="Add" onclick="addContact()">Add</button>
 						</div>
 					</div>
-					<div class="functionalitiesHolder">
-						<div id="edit" class="function">
-							<img src="images/edit1.jpg" class="image">
-							<label>Edit</label>
+					<div id="editContactSectionButtons" class="buttons">
+						<div class="rightChild">
+							<button class="button" id="cancel" value="Cancel" onclick="hideForm()">Cancel</button>
 						</div>
-						<div id="delete" class="function">
-							<img src="images/delete1.png" class="image" >
-							<label>Delete</label>
+						<div class="rightChild">
+							<button class="submit button" id="save" value="Save" onclick="updateDetails()">Save</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="addContainer page hide">
-			<div class="add">
-				<form name="addContact" id="addForm" class="form">
-					<div class="cell">
-						<p class="label"><label>Name</label></p>
-						<input type="text" class="inputField" name="name">
-					</div>
-					<div class="cell">
-						<p class="label"><label>Email</label></p>
-						<input type="email" class="inputField" name="mailId">
-					</div>
-					<div class="row">
-						<div class="cell">
-							<p class="label"><label>Mobile</label></p>
-							<input type="tel" class="inputField" name="mobile" required>
-						</div>
-						<div class="cell">
-							<p class="label"><label>Landline</label></p>
-							<input type="tel" class="inputField" name="landline">
-						</div>
-					</div>
-					<div class="cell">
-						<p class="label"><label>Website</label></p>
-						<input type="text" class="inputField" name="website">
-					</div>
-					<div class="cell">
-						<p class="label"><label>Address</label></p>
-						<textarea name="address" class="inputField" rows="4"></textarea>
-					</div>
-				
-				</form>
-				<div class="rightChild">
-					<input type="submit" class="button" name="add" value="Add">
-				</div>
-			</div>
-		</div>
-		<div class="editContainer page hide">
-			<div class="edit">
-				<form name="editContact" id="editForm" class="form">
-					<div class="cell">
-						<p class="label"><label>Name</label></p>
-						<input type="text" class="inputField" name="name">
-					</div>
-					<div class="cell">
-						<p class="label"><label>Email</label></p>
-						<input type="email" class="inputField" name="mailId">
-					</div>
-					<div class="row">
-						<div class="cell">
-							<p class="label"><label>Mobile</label></p>
-							<input type="tel" class="inputField" name="mobile" required>
-						</div>
-						<div class="cell">
-							<p class="label"><label>Landline</label></p>
-							<input type="tel" class="inputField" name="landline">
-						</div>
-					</div>
-					<div class="cell">
-						<p class="label"><label>Website</label></p>
-						<input type="text" class="inputField" name="website">
-					</div>
-					<div class="cell">
-						<p class="label"><label>Address</label></p>
-						<textarea name="address" class="inputField" rows="4"></textarea>
-					</div>
-				
-				</form>
-				<div class="rightChild">
-					<input type="submit" class="save button" id="save" name="add" value="Save">
-				</div>
-				<div class="rightChild">
-					<input type="button" class="cancel button" id="cancel" name="cancel" value="Cancel">
-				</div>
-			</div>
-		</div>
-	</div>
-		
+	</div>		
 </body>
 </html>
