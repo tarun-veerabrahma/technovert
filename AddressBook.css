@@ -1,7 +1,7 @@
 .body {
 	margin: 0;
 }
-.navContainer {
+.navigationContainer {
 	background-color: rgb(51, 51, 51);
 	overflow: hidden;
 	display: flex;
@@ -15,7 +15,7 @@
 	padding: 0;
 }
 
-.navContainer .link {
+.navigationContainer .link {
 	color: #fffff0;
 	font: status-bar;
 	text-align: center;
@@ -28,18 +28,18 @@
 	border-left: 4px solid rgb(51, 51, 51);
 	margin-right: 2px;
 }
-.navContainer .link.active {
+.navigationContainer .link.active {
 	background-color: rgb(255, 153, 0);
 	color: black;
 	border-left: 4px solid white;
 }
-.navContainer .link:hover{
+.navigationContainer .link:hover{
 	background-color: rgb(255, 153, 0);
 	color: black;
 	border-left: 4px solid white;
 }
 
-.navContainer .rightChild {
+.navigationContainer .rightChild {
 	margin-right: 12px;
 	margin-left: auto;
 	margin-top: 4px;
@@ -53,7 +53,7 @@
 	max-height: 110px;
 	padding: 25px 16px;
 	overflow: hidden;
-}
+}	
 
 .heading .title{
 	margin: 0px 8px;
@@ -66,204 +66,164 @@
 }
 
 .page {
-	padding: 15px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-.pagesContainer{
-	position: relative;
+	padding: 12px;
+	font-family: "Open Sans";
 }
 
 .home{
 	display: flex;
-	position: absolute;
 }
-.contactTileSection{
-	padding: 0px 16px;
-	width: 396px;
+.contactsSection{
+	padding: 0px 8px;
+	width: 28%;
 }
-.contactTileSection .subHeading{
+.contactsSection .subHeading{
 	text-transform: uppercase;
 	font-size: 16px;
 }
-.contactTileSection .contactTile{
+.contactsSection .contactTile{
 	border: 1px solid rgb(204, 204, 204);
-	padding: 5px;
+	height: 88px;
 }
-.contactTileSection .contactTile >*{
-	padding: 0px 12px;
-	color: rgb(82, 82, 82);
+.contactsSection .contactTile >*{
+	padding: 0px 8px;
+	color: rgb(51, 51, 51);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-.contactTileSection .contactTile .name{
+.contactsSection .contactTile .name{
 	font-size: 28px;
+	font-weight: 400;
 }
-.contactTileSection .contactTile .details{
-	padding: 5px 0px 5px 18px;
+.contactsSection .contactTile .details{
+	padding: 5px 0px 5px 16px;
 	font-size: 14px;
-	font-weight: ;
+	font-weight: 600;
 }
 .contactTile.active, .contactTile:hover{
 	background-color: rgb(206, 231, 242);
 	color: black;
 }
-
-.detailsSection{
-	font-family: "Century Gothic";
-	padding: 20px 0px 20px 20px;
-
-}
-.sectionDivider{
-	display: flex;
-}
-.sectionDivider .cell{
-}
-.detailsSection .contactDetails{
-	padding: 16px 0px 20px 30px;
-
-}
-.detailsSection .contactDetails >*{
-	padding: 10px 0px;
-}
-.detailsSection #name{
-	font-size: 36px;
-}
-
-.detailsSection .contactDetails .address {
-	display: inline-flex;
-}
-
-.functionalitiesHolder{
-	display: flex;
+.rightSection{
 	position: relative;
-	right: 0;
+	width: 72%;
 }
 
-.functionalitiesHolder .function {
-	display: flex;
-	float: right;
-	margin: 40px;
+.contactDetailsSection{
+	width: 72%;
+	position: absolute;
+	padding: 28px 0px 20px 64px;
+	color: rgb(51, 51, 51);
+
 }
-.functionalitiesHolder .function .image{
-	width: 15px;
-	height: 17px;
+.contactDetailsSection >*{
+	padding: 8px 0px;
+}
+.contactDetailsSection .contactDetailsHeader{
+	display: flex;
+	width: 100%;
+}
+.contactDetailsSection .contactDetailsHeader .contactDetail{
+	font-weight: 600;
 	
 }
+.contactDetailsSection .contactDetail{
+	display: flex;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-.addContainer{
+.contactDetailsSection .contactDetailsHeader .contactDetail{
+	font-size: 28px;
+}
+.contactDetailsSection .contactDetailsHeader .options{
+	display: flex;
+	flex-flow: row;
+}
+
+.contactDetailsSection .contactDetailsHeader .options .option{
+	display: flex;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin: auto;
+}
+.contactDetailsSection .contactDetailsHeader .options .image{
+	height: 16px;
+	padding: 0px 4px;
+}
+.contactDetailsSection .contactDetailsHeader .options >*{
+	padding: 0px 20px;
+	margin:;
+}
+.contactDetailsSection .contactDetail .label{
+	font-size: 16px;
+}
+.contactDetailsSection .contactDetail .address{
+	white-space: pre-wrap;
+}
+.formContainer{
 	position: absolute;
 	z-index: 1;
-	height: fit-content;
-	padding-left: 428px;
-}
-.add{
-	margin-left: 25px;
-	margin-top: 10px;
-	z-index: 2;
-	width: 684px;
-	box-shadow: 0px 0px 12px 5px rgb(155, 155, 155);
-	padding: 10px;
-	background-color: rgb(255, 255, 255);
-	overflow-y: auto;
-}
+    height: fit-content;
+    padding:10px 10px 28px 10px;
+    margin-top: 10px;
+    margin-left: 24px;
+    width: 72%;
+    box-shadow: 0px 0px 12px 5px rgb(155 155 155);
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
 
-.add .form{
+}
+.formContainer .form{
 	width: 80%;
 }
-.add .inputField{
+.formContainer .inputField{
 	width: 100%;
 	display: block;
-	padding: 8px 0px;
+	padding: 10px 5px;
 	font-size: 14px;
 }
-.add .cell{
+.formContainer .cell{
 	padding: 0 15px;
+	margin: 10px 0px;
 }
-.add .label{
+.formContainer .label{
 	margin-bottom: 0;
-	font-weight: bold;
-	font-family: Arial;
-	font-size: 14px;
+	font-weight: 800;
+	font-size: 12px;
 }
 
-.add .row{
+.formContainer .row{
 	display: flex;
 }
-.add .row .cell{
+.formContainer .row .cell{
 	width: 50%;
 }
-.add .rightChild{
+.formContainer .rightChild{
 	width: 20%;
-	margin: 10px 10px 0 0;
 	float: right;
+	padding-right: 10px;
 }
-.add .rightChild .button{
-	margin-left: 0;
-	padding: 10px 50px;
-	font-size: 14px;
-	font-size: 16px;
-	background-color: rgb(70, 140, 0);
-	color: white;
-	border: none;
-}
-
-.editContainer{
-	position: absolute;
-	z-index: 1;
-	height: 100%;
-	height: fit-content;
-	padding-left: 428px;
-}
-.edit{
-	margin-left: 25px;
-	margin-top: 10px;
-	z-index: 2;
-	width: 684px;
-	box-shadow: 0px 0px 12px 5px rgb(155, 155, 155);
-	padding: 10px;
-	background-color: rgb(255, 255, 255);
-	overflow-y: auto;
-}
-
-.edit .form{
-	width: 80%;
-}
-.edit .inputField{
-	width: 100%;
+.formContainer .row .cell .label{
 	display: block;
-	padding: 8px 0px;
-	font-size: 14px;
 }
-.edit .cell{
-	padding: 0 15px;
-}
-.edit .label{
-	margin-bottom: 0;
-	font-weight: bold;
-	font-family: Arial;
-	font-size: 14px;
-}
-
-.edit .row{
-	display: flex;
-}
-.edit .row .cell{
-	width: 50%;
-}
-.edit .rightChild{
-	width: 20%;
-	margin: 10px 10px;
-	float: right;
-}
-.edit .rightChild .button{
+.formContainer .rightChild .button{
 	margin-left: 0;
-	padding: 10px 50px;
-	font-size: 14px;
+	padding: 10px 0px;
+	text-align: center;
 	font-size: 16px;
 	border: none;
+	width: 100%;
 }
-.edit .rightChild .button.save{
+.formContainer .rightChild .submit{
 	background-color: rgb(70, 140, 0);
 	color: white;
 }
+
+
 
 .hide{
 	display: none;
@@ -272,6 +232,43 @@
 	pointer-events: none;
 }
 
-.addContainer.active{
+.formContainer.active{
 	display: block;
+}
+.validationMsg{
+	color: red;
+	font-size: 12px;
+}
+
+@media(max-width: 768px){
+	.contactDetailsSection .contactDetailsHeader{
+		flex-flow: row wrap;
+	}
+	.contactDetailsSection .contactDetail{
+		flex-flow: row wrap;
+	}
+}
+@media(max-width: 560px){
+	.home{
+		flex-flow: row wrap;
+	}
+	.contactsSection{
+		width: 85%;
+	}
+	.rightSection{
+		width: 90%;
+	}
+	.contactDetailsSection{
+		width: 85%;
+		position: absolute;
+		padding: 20px;
+		color: rgb(51, 51, 51);
+
+	}
+	.formContainer{
+		
+	    margin-top: 24px;
+	    margin-left: 10px;
+	    width: 100%;
+	}
 }
