@@ -1,6 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,500,600,700);
+
 .body {
 	margin: 0;
 }
+.hide{
+	display: none;
+}
+
 .navigationContainer {
 	background-color: rgb(51, 51, 51);
 	overflow: hidden;
@@ -68,6 +74,7 @@
 .page {
 	padding: 12px;
 	font-family: "Open Sans";
+	font-weight: 400;
 }
 
 .home{
@@ -94,12 +101,12 @@
 }
 .contactsSection .contactTile .name{
 	font-size: 28px;
-	font-weight: 400;
+	font-weight: 300;
 }
 .contactsSection .contactTile .details{
 	padding: 5px 0px 5px 16px;
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 500;
 }
 .contactTile.active, .contactTile:hover{
 	background-color: rgb(206, 231, 242);
@@ -109,6 +116,7 @@
 	position: relative;
 	width: 72%;
 }
+
 
 .contactDetailsSection{
 	width: 72%;
@@ -122,10 +130,11 @@
 }
 .contactDetailsSection .contactDetailsHeader{
 	display: flex;
-	width: 100%;
+	width: 80%;
 }
 .contactDetailsSection .contactDetailsHeader .contactDetail{
 	font-weight: 600;
+	font-size: 28px;
 	
 }
 .contactDetailsSection .contactDetail{
@@ -136,9 +145,6 @@
 	text-overflow: ellipsis;
 }
 
-.contactDetailsSection .contactDetailsHeader .contactDetail{
-	font-size: 28px;
-}
 .contactDetailsSection .contactDetailsHeader .options{
 	display: flex;
 	flex-flow: row;
@@ -158,8 +164,9 @@
 	padding: 0px 20px;
 	margin:;
 }
-.contactDetailsSection .contactDetail .label{
+.contactDetailsSection .contactDetail .detailsSectionLabel{
 	font-size: 16px;
+	margin-right: 4px;
 }
 .contactDetailsSection .contactDetail .address{
 	white-space: pre-wrap;
@@ -177,8 +184,9 @@
     overflow-y: auto;
 
 }
-.formContainer .form{
+.form{
 	width: 80%;
+	padding-top: 10px;
 }
 .formContainer .inputField{
 	width: 100%;
@@ -188,11 +196,10 @@
 }
 .formContainer .cell{
 	padding: 0 15px;
-	margin: 10px 0px;
 }
-.formContainer .label{
+.formLabel{
 	margin-bottom: 0;
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 12px;
 }
 
@@ -202,16 +209,16 @@
 .formContainer .row .cell{
 	width: 50%;
 }
+.formContainer .row .cell .formLabel{
+	display: block;
+}
 .formContainer .rightChild{
 	width: 20%;
 	float: right;
 	padding-right: 10px;
 }
-.formContainer .row .cell .label{
-	display: block;
-}
 .formContainer .rightChild .button{
-	margin-left: 0;
+	margin-left: 10px;
 	padding: 10px 0px;
 	text-align: center;
 	font-size: 16px;
@@ -223,21 +230,14 @@
 	color: white;
 }
 
-
-
-.hide{
-	display: none;
-}
-.disable{
-	pointer-events: none;
-}
-
 .formContainer.active{
 	display: block;
 }
 .validationMsg{
 	color: red;
-	font-size: 12px;
+    font-size: 12px;
+    min-height: 20px;
+    display: block;
 }
 
 @media(max-width: 768px){
