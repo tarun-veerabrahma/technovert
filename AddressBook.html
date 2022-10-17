@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Address Book</title>
 	<link rel="stylesheet" href="AddressBook.css">
-	<link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="AddressBook.js" defer></script>
@@ -22,105 +21,100 @@
 		</ul>
 		<img class="rightChild" src="images/blog-icon.jpg"/>
 	</div>
-	<div class="pagesContainer" id="pagesContainer">
-		<div class="home page">
-			<div class="contactsSection" id="contactsSection">
-				<h3 class="subHeading">Contacts</h3>
-				<div class="contactTile" id="1">
-					<div><span class="name">Chandermani Arora</span></div>
-					<div class="details">
-						<div><span class="email">chandermani@technovert.com</span></div>
-						<div><span class="mobile">+91 9292929292</span></div>
+
+	<div class="home page">
+		<div class="contactsSection" id="contactsSection">
+			<h3 class="subHeading">Contacts</h3>
+		</div>
+
+		<div class="rightSection">
+			<div class="contactDetailsSection hide" id="contactDetailsSection">
+				<div class="contactDetailsHeader">
+					<div class="contactDetail"><span id="name"></span></div>
+					<div class="options">
+						<div id="editOption" class="option" onclick="editContact(this.id)">
+							<img class="image" src="images/editIcon.jpg">
+							<label class="label">Edit</label>
+						</div>
+						<div id="deleteOption" class="option" onclick="deleteContact()">
+							<img class="image" src="images/deleteIcon.png">
+							<label class="label">Delete</label>
+						</div>
 					</div>
+				</div>
+				<div class="contactDetail">
+					<label class="detailsSectionLabel">Email: </label>
+					<span id="email"></span>
+				</div>
+				<div class="phone">
+					<div class="contactDetail">
+						<label class="detailsSectionLabel">Mobile: </label>
+						<span id="mobile"></span>
+					</div>
+					<div class="contactDetail">
+						<label class="detailsSectionLabel">Landline: </label>
+						<span id="landline"></span>
+					</div>
+				</div>
+				<div class="contactDetail">
+					<label class="detailsSectionLabel">Website: </label>
+					<span id="website"></span>
+				</div>
+				<div class="contactDetail">
+					<label class="detailsSectionLabel">Address: </label>
+					<div><span id="address" class="address"></span></div>
 				</div>
 			</div>
 
-			<div class="rightSection">
-				<div class="contactDetailsSection" id="contactDetailsSection">
-					<div class="contactDetailsHeader">
-						<div class="contactDetail"><span id="name">Praveen Battula</span></div>
-						<div class="options">
-							<div id="editOption" class="option" onclick="editDetails(this.id)">
-								<img class="image" src="images/editIcon.jpg">
-								<label class="label">Edit</label>
-							</div>
-							<div id="deleteOption" class="option" onclick="deleteContact()">
-								<img class="image" src="images/deleteIcon.png">
-								<label class="label">Delete</label>
-							</div>
+			<div class="formContainer page hide" id="formContainer">
+				<form name="contactForm" id="contactForm" class="form">
+					<div class="cell">
+						<label class="formLabel">Name</label>
+						<input type="text" class="inputField" name="name" onblur="fieldValidation(this)">
+						<span class="validationMsg"></span>
+					</div>
+					<div class="cell">
+						<label class="formLabel">Email</label>
+						<input type="text" class="inputField" name="email" onblur="fieldValidation(this)">
+						<span class="validationMsg"></span>
+					</div>
+					<div class="row">
+						<div class="cell">
+							<label class="formLabel">Mobile</label>
+							<input type="text" class="inputField" name="mobile" onblur="fieldValidation(this)">
+							<span class="validationMsg"></span>
+						</div>
+						<div class="cell">
+							<label class="formLabel">Landline</label>
+							<input type="text" class="inputField" name="landline" onblur="fieldValidation(this)">
+							<span class="validationMsg"></span>
 						</div>
 					</div>
-					<div class="contactDetail">
-						<label class="label">Email: </label>
-						<span id="email"></span>
+					<div class="cell">
+						<label class="formLabel">Website</label>
+						<input type="text" class="inputField" name="website" onblur="fieldValidation(this)">
+						<span class="validationMsg"></span>
 					</div>
-					<div class="phone">
-						<div class="contactDetail">
-							<label class="label">Mobile: </label>
-							<span id="mobile"></span>
-						</div>
-						<div class="contactDetail">
-							<label class="label">Landline: </label>
-							<span id="landline"></span>
-						</div>
+					<div class="cell">
+						<label class="formLabel">Address</label>
+						<textarea name="address" class="inputField" rows="4" onblur="fieldValidation(this)"></textarea>
+						<span class="validationMsg"></span>
 					</div>
-					<div class="contactDetail">
-						<label class="label">Website: </label>
-						<span id="website"></span>
+				</form>
+				<div id="addContactButtonsContainer" class="buttons">
+					<div class="rightChild">
+						<button class="button" id="cancel" value="Cancel" onclick="changePage('home')">Cancel</button>
 					</div>
-					<div class="contactDetail">
-						<label class="label">Address: </label>
-						<div><span id="address" class="address"></span></div>
+					<div class="rightChild">
+						<button class="submit button" id="addButton" value="Add" onclick="addContact()">Add</button>
 					</div>
 				</div>
-
-				<div class="formContainer page hide" id="formContainer">
-					<form name="contactDetailsForm" id="contactDetailsForm" class="form">
-						<div class="cell">
-							<label class="label">Name</label>
-							<input type="text" class="inputField" name="name">
-							<span class="validationMsg"></span>
-						</div>
-						<div class="cell">
-							<label class="label">Email</label>
-							<input type="text" class="inputField" name="email">
-							<span class="validationMsg"></span>
-						</div>
-						<div class="row">
-							<div class="cell">
-								<label class="label">Mobile</label>
-								<input type="text" class="inputField" name="mobile">
-								<span class="validationMsg"></span>
-							</div>
-							<div class="cell">
-								<label class="label">Landline</label>
-								<input type="text" class="inputField" name="landline">
-								<span class="validationMsg"></span>
-							</div>
-						</div>
-						<div class="cell">
-							<label class="label">Website</label>
-							<input type="text" class="inputField" name="website">
-							<span class="validationMsg"></span>
-						</div>
-						<div class="cell">
-							<label class="label">Address</label>
-							<textarea name="address" class="inputField" rows="4"></textarea>
-							<span class="validationMsg"></span>
-						</div>
-					</form>
-					<div id="addContactSectionButtons" class="buttons">
-						<div class="rightChild">
-							<button class="submit button" id="addButton" value="Add" onclick="addContact()">Add</button>
-						</div>
+				<div id="editContactButtonsContainer" class="buttons">
+					<div class="rightChild">
+						<button class="button" id="cancel" value="Cancel" onclick="changePage('home')">Cancel</button>
 					</div>
-					<div id="editContactSectionButtons" class="buttons">
-						<div class="rightChild">
-							<button class="button" id="cancel" value="Cancel" onclick="hideForm()">Cancel</button>
-						</div>
-						<div class="rightChild">
-							<button class="submit button" id="save" value="Save" onclick="updateDetails()">Save</button>
-						</div>
+					<div class="rightChild">
+						<button class="submit button" id="save" value="Save" onclick="updateContact()">Save</button>
 					</div>
 				</div>
 			</div>
