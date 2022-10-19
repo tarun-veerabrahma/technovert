@@ -2,29 +2,45 @@ var contacts = {};
 var contactObj = {};
 var uniqueId = 0;
 var contactTileLayout = `<div class="contactTile">
-					<div><span class="name"></span></div>
+					<div class="tooltip">
+						<span class="contactDetail name"></span>
+						<span class="tooltipText"></span>
+					</div>
 					<div class="details">
-						<div><span class="email"></span></div>
-						<div><span class="mobile"></span></div>
+						<div class="tooltip">
+							<span class="contactDetail email"></span>
+							<span class="tooltipText"></span>
+						</div>
+						<span class="contactDetail mobile"></span>
 					</div>
 				</div>`;
 var validationPatterns = {
 	"name": "^[A-za-z ]{3,}$",
-	"email": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$",
-	"mobile": "^[(]?[\+]?[0-9]{0,3}[)]?( )?[0-9]{10}$",
+	"email": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,3}$",
+	"mobile": "^(([\+][(][0-9]{1,3}[)])|([\+][0-9]{1,3}))?( )?[0-9]{10}$",
 	"landline": "^[0-9]{2,4}[(\-) ]?[0-9]{6,8}$",
-	"website": "^((http|https):\/\/)?([w]{3}.)?[A-Za-z]+([A-Za-z0-9_(\-)%:\.\/])+$",
+	"website": "^(((http|https)://)|(w{3}\.))$",
 	"address": "[0-9A-Za-z\.(\-)\/: \n]+$"
 }
 var validationFlag=0;
 
+var requiredFieldsIndicator='<span class="requiredFieldsIndicator">*</span>';
 
+function markRequiredFields(elementId){
+	$("#"+elementId).find(":input").each(function(){
+		if($(this).attr("required") == "required"){
+			$(this).parent().find(".formLabel").after(requiredFieldsIndicator);
+		}
+	})
 
+}
 
 function showForm(elementId){
 	$("#formContainer").find(".buttons").addClass("hide");
 	if(elementId=="addContact"){
 		$("#addContactButtonsContainer").removeClass("hide");
+		$(".body").addClass("blur");
+		$("#formContainer").addClass("focus");
 	}
 	if(elementId=="editOption"){
 		$("#editContactButtonsContainer").removeClass("hide");
@@ -32,39 +48,48 @@ function showForm(elementId){
 	$("#formContainer").removeClass("hide");
 }
 
-function cancelForm(){
+function closeForm(){
 	$("#formContainer").addClass("hide");
 	$("#contactForm").trigger("reset");
-	resetValidationMsg("contactForm");
+	$("#contactForm").removeClass("focus");
+	$(".body").removeClass("blur");
+	resetErrorMsgs("contactForm");
+	changePage("home");
 }
 
 
 function fieldValidation(element){
-	console.log(element);
 	let input = $(element)[0].value;
 	let name=$(element)[0].name;
 	let temp = $(element)[0];
 	let label = $(temp).parent().find(".formLabel").text();
 	if(!(input.match(validationPatterns[name]))){
-		validationFlag = 0;
+		validationFlag = false;
 		if(input==""){
-			$(temp).parent().find(".validationMsg").text(label+" is required");
+			setErrorMsg(temp,label+" is required");
 		}
 		else{
-			$(temp).parent().find(".validationMsg").text("Invalid "+label);
+			setErrorMsg(temp,"Invalid "+label);
 		}
 	}
 	else{
-		$(temp).parent().find(".validationMsg").text("");
+		resetErrorMsg(temp);
 	}
 }
 
-function resetValidationMsg(elementId){
-	$("#"+elementId).find(".validationMsg").each(function(){
+function setErrorMsg(element,msg){
+	$(element).parent().find(".errorMsg").text(msg);
+}
+
+function resetErrorMsg(element){
+	$(element).parent().find(".errorMsg").text("");
+}
+
+function resetErrorMsgs(elementId){
+	$("#"+elementId).find(".errorMsg").each(function(){
 		$(this).text("");
 	})
 }
-
 
 function setContactObj(values){
 	contactObj = {};
@@ -78,6 +103,7 @@ function setContactTileValues(contactTile){
 	for(var key in contactObj){
 		if(contactTile.find("."+key).length != 0){
 			contactTile.find("."+key).text(contactObj[key]);
+			contactTile.find("."+key).parent().children(".tooltipText").text(contactObj[key]);
 		}
 	}
 }
@@ -106,14 +132,11 @@ function setInputFieldsValues(id){
 function formValidation(elementId){
 	let fields = $("#"+elementId).find(":input");
 	let values = fields.serializeArray();
-	validationFlag=1;
+	validationFlag=true;
 	fields.each(function(){
 		fieldValidation(this);
 	})
-	if(validationFlag){
-		return true;
-	}
-	else{ return false;}
+	return validationFlag;
 
 }
 
@@ -124,11 +147,10 @@ function changePage(elementId){
 	{
 		showForm(elementId);
 	}
-	else{
-		cancelForm();	
-	}
 }
 
+
+$("#addContact").one("click",markRequiredFields("contactForm"));
 function addContact(){
 	var values = $("#contactForm :input").serializeArray();
 	if(formValidation("contactForm")){
@@ -139,9 +161,15 @@ function addContact(){
 		temp.setAttribute("id",++uniqueId);
 		contacts[uniqueId]=JSON.stringify(contactObj);
 		newContactTile.click();
-		changePage("home");
+		closeForm();
 	}
 		
+}
+
+function cancelForm(){
+	if(confirm("Your changes will not be saved")){
+		closeForm();
+	}
 }
 
 $("#contactsSection").on("click",".contactTile",function(){
@@ -151,19 +179,33 @@ $("#contactsSection").on("click",".contactTile",function(){
 	setContactDetailsSectionValues(id);
 })
 
-function editContact(element){
+function openEditContactForm(element){
 	let id = $(".contactTile.active")[0].getAttribute("id");
 	setInputFieldsValues(id);
 	showForm(element);
 }
 
 function deleteContact(){
-	let id = $(".contactTile.active")[0].getAttribute("id");
-	$(".contactTile.active")[0].remove();
-	delete contacts[id];
-	$("#contactDetailsSection").addClass("hide");
-	$("#contactsSection").find(".contactTile")[0].click();
+	if(confirm("Are you sure, you want to delete this contact")){
+		let id = $(".contactTile.active")[0].getAttribute("id");
+		$(".contactTile.active")[0].remove();
+		delete contacts[id];
+		$("#contactDetailsSection").addClass("hide");
 
+		let contactTiles = $("#contactsSection").children(".contactTile");
+		if(contactTiles.length>=1){
+			for(var i=0;i<contactTiles.length;i++){
+				if(contactTiles[i].getAttribute("id")>id){
+					contactTiles[i].click();
+					break;
+				}
+			}
+			if(i==contactTiles.length){
+				contactTiles[i-1].click();
+			}
+		}
+			
+	}
 }
 
 function updateContact(){
@@ -172,7 +214,7 @@ function updateContact(){
 		let values = $("#contactForm :input").serializeArray();
 		setContactObj(values);
 		contacts[id] = JSON.stringify(contactObj);
-		cancelForm();
+		closeForm();
 		let contactTile = $(".contactTile.active");
 		setContactTileValues(contactTile);
 		contactTile.click();
