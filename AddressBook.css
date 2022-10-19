@@ -9,7 +9,6 @@
 
 .navigationContainer {
 	background-color: rgb(51, 51, 51);
-	overflow: hidden;
 	display: flex;
 	padding: 0px 12px;
 }
@@ -29,10 +28,10 @@
 	padding: 4px 12px;
 	font-size: 16px;
 	font-weight: bold;
-	background-color: inherit;
 	background-color: rgb(51, 51, 51);
 	border-left: 4px solid rgb(51, 51, 51);
 	margin-right: 2px;
+	cursor: pointer;
 }
 .navigationContainer .link.active {
 	background-color: rgb(255, 153, 0);
@@ -51,19 +50,18 @@
 	margin-top: 4px;
 	margin-bottom: 4px;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 
 .heading {
 	background-color: rgb(51,153,204);
-	max-height: 110px;
+	height: 60px;
 	padding: 25px 16px;
-	overflow: hidden;
 }	
 
 .heading .title{
 	margin: 0px 8px;
-	float: left;
 	padding: 0;
 	font-size: 48px;
 	font-family: "Century Gothic";
@@ -91,14 +89,44 @@
 .contactsSection .contactTile{
 	border: 1px solid rgb(204, 204, 204);
 	height: 88px;
+	cursor: pointer;
 }
 .contactsSection .contactTile >*{
 	padding: 0px 8px;
 	color: rgb(51, 51, 51);
+}
+.contactsSection .contactDetail{
+	width: 95%;
+	display: block;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+.tooltip {
+  position: relative;
+  width: 100%;
+}
+
+.tooltip .tooltipText {
+  visibility: hidden;
+  width: 50%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  word-wrap: break-word;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  bottom: 100%;
+  left: 25%;
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+}
+
 .contactsSection .contactTile .name{
 	font-size: 28px;
 	font-weight: 300;
@@ -108,6 +136,7 @@
 	font-size: 14px;
 	font-weight: 500;
 }
+
 .contactTile.active, .contactTile:hover{
 	background-color: rgb(206, 231, 242);
 	color: black;
@@ -140,11 +169,11 @@
 .contactDetailsSection .contactDetail{
 	display: flex;
 	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
-
+.contactDetail .value{
+	display: inline-block;
+	word-wrap: break-word;
+}
 .contactDetailsSection .contactDetailsHeader .options{
 	display: flex;
 	flex-flow: row;
@@ -155,15 +184,16 @@
 	font-size: 14px;
 	text-transform: uppercase;
 	margin: auto;
+	padding: 0px 20px;
+}
+.contactDetailsSection .contactDetailsHeader .options .option >*{
+	cursor: pointer;
 }
 .contactDetailsSection .contactDetailsHeader .options .image{
 	height: 16px;
 	padding: 0px 4px;
 }
-.contactDetailsSection .contactDetailsHeader .options >*{
-	padding: 0px 20px;
-	margin:;
-}
+
 .contactDetailsSection .contactDetail .detailsSectionLabel{
 	font-size: 16px;
 	margin-right: 4px;
@@ -202,16 +232,16 @@
 	font-weight: 700;
 	font-size: 12px;
 }
-
+.requiredFieldsIndicator{
+	color: red;
+}
 .formContainer .row{
 	display: flex;
 }
 .formContainer .row .cell{
 	width: 50%;
 }
-.formContainer .row .cell .formLabel{
-	display: block;
-}
+
 .formContainer .rightChild{
 	width: 20%;
 	float: right;
@@ -224,20 +254,34 @@
 	font-size: 16px;
 	border: none;
 	width: 100%;
+	cursor: pointer;
+}
+.formContainer .rightChild .button:hover{
+	background-color: rgb(220, 220, 220);
 }
 .formContainer .rightChild .submit{
 	background-color: rgb(70, 140, 0);
 	color: white;
 }
+.formContainer .rightChild .submit:hover{
+	background-color: rgb(50, 120, 0);
+}
 
 .formContainer.active{
 	display: block;
 }
-.validationMsg{
+.errorMsg{
 	color: red;
     font-size: 12px;
-    min-height: 20px;
+    height: 20px;
     display: block;
+}
+
+.blur{
+	pointer-events: none;
+}
+.focus{
+	pointer-events: all;
 }
 
 @media(max-width: 768px){
