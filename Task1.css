@@ -1,0 +1,209 @@
+.body {
+	margin: 0;
+}
+.navContainer {
+	background-color: rgb(51, 51, 51);
+	overflow: hidden;
+	display: flex;
+	padding: 0px 12px;
+}
+
+.navigation{
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navContainer .link {
+	color: #fffff0;
+	font: status-bar;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 4px 12px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: inherit;
+	background-color: rgb(51, 51, 51);
+	border-left: 4px solid rgb(51, 51, 51);
+	margin-right: 2px;
+}
+.navContainer .link.active {
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+.navContainer .link:hover{
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+
+.navContainer .rightChild {
+	margin-right: 12px;
+	margin-left: auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-radius: 4px;
+}
+
+
+.heading {
+	background-color: rgb(51,153,204);
+	max-height: 110px;
+	padding: 24px 16px;
+	overflow: hidden;
+}
+
+.heading .title{
+	margin: 0px 8px;
+	float: left;
+	padding: 0;
+	font-size: 48px;
+	font-family: "Century Gothic";
+	color: white;
+	font-weight: 300;
+}
+
+.page {
+	padding: 24px 48px;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 1138px;
+}
+.home .news{
+	border: 1px solid #D3D3D3;
+	padding: 16px;
+	width: fit-content;
+}
+.home .news .newsHeading{
+	text-transform: uppercase;
+	margin: 0;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "Century Gothic";
+}
+.home .news .list {
+	list-style: "-";
+	margin: 0;
+	padding: 0px 15px;
+	font-size: 14px;
+	font-weight: 400;
+}
+.home .news .list .item{
+	padding: 8px 10px;
+	font-family: sans-serif;
+}
+.home .content {
+	font-size: 14px;
+	max-width: 1000px;
+	font-family: Arial;
+}
+.home .greetingText{
+	margin-top: 32px;
+}
+
+.hide {
+	display: none;
+}
+.hidden {
+	visibility: hidden;
+}
+
+.contentHeading{
+	font-size: 32px;
+	padding: 8px;
+	font-family: "Century Gothic";
+}
+
+.careers .button{
+	font-weight: bold;
+	font-size: 14px;
+	padding: 8px 30px 8px 15px;
+	background-color: rgb(238, 238, 238);
+	border: 1px solid rgb(153, 153, 153);
+	border-radius: 2px;
+}
+.careers .content{
+	font-size: 18px;
+	padding:  0px 12px;
+
+}
+.careers .table{
+	display: table;
+	margin: 64px 15px 0px 20px;
+	font-family: "Arial";
+}
+.careers .table .row{
+	display: table-row;
+}
+.careers .table .row .cell{
+	display: table-cell;
+	padding: 10px;
+	
+}
+.careers .table .row .cell .input{
+	padding: 8px;
+}
+.careers .label{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.careers .submitButton{
+	font-size: 16px;
+	padding: 8px 30px 8px 15px;
+	font-weight: bold;
+	background-color: rgb(238, 238, 238);
+	border: 1px solid rgb(153, 153, 153);
+	border-radius: 2px;
+}
+/*.careers .row.lastRow{
+	display: grid;
+	grid-template-columns: auto auto;
+}
+.careers .secondCell{
+	grid-column-start: 2;
+}*/
+
+.contact .table{
+	display: table;
+	margin: 15px 15px 0px 15px;
+	font-family: "Arial";
+}
+.contact .table .row{
+	display: table-row;
+}
+.contact .table .row .cell{
+	display: table-cell;
+	padding: 10px;
+}
+.contact .table .row .cell .input,.select{
+	padding: 5px;
+	width: 260px;
+    height: 40px;
+    margin: 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contact .required,.errorMsg,.emailValidationMsg {
+	color: red;
+}
+.commonErrorMsg {
+	color: red;
+	font-size: 24;
+	font-weight: bold;
+	margin: 5px;
+}
+.contact .button {
+	padding: 8px 20px;
+	font-size: 16px;
+	font-weight: bold;
+
+}
+
+.contact .label{
+	font-weight: bold;
+	font-size: 18px;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home</title>
+	<link rel="stylesheet" href="Task1.css">
+	<script src="Task3.js"></script>
+</head>
+<body class="body">
+	<div class="heading">
+		<span class="title">TECHNOVERT</span>
+	</div>
+
+	<div class="navContainer">
+		<ul class="navigation">
+			<li class="link active" id="homeNav" onclick="changePage(this,'home')">Home</li>
+			<li class="link" id="servicesNav" onclick="changePage(this,'empty')">Services</li>
+			<li class="link" id="careersNav" onclick="changePage(this,'careers')">Careers</li>
+			<li class="link" id="contactNav" onclick="changePage(this,'contact')">Contact</li>
+		</ul>
+		<img class="rightChild" src="blogIcon.jpg"/>
+	</div>
+
+	
+	<!--Home Page-->
+	<div class="home page" id="home">
+		<div class="news">
+			<div class="newsHeading"><span>News</span></div>
+			<ul class="list">
+				<li class="item">Technovert is now Microsoft partner in Information Security Solutions</li>
+				
+				<li class="item">We deliver one of the largest book information stores in the world</li>
+
+				<li class="item">Our team delivered the first Windows 8 Metro style application for the Windows Phone group at Microsoft</li>
+
+				<li class="item">Technovert partners with a strategic technology CTO group</li>
+			</ul>
+		</div>
+		<div class="content">
+			<h2 class="greetingText">Welcome!</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vulputate, felis venenatis tristique pulvinar, felis arcu congue ante, at dictum turpis metus ac risus. Nunc pulvinar enim eros, et interdum purus. Nam lacinia neque et ipsum sollicitudin vel laoreet diam laoreet. Pellentesque tempus vulputate enim, quis vulputate purus tincidunt id. Nulla in nunc augue, at ultricies dui. Nullam accumsan lacus nec diam pretium non dictum odio commodo. Nam blandit hendrerit iaculis. Ut sed posuere justo. Suspendisse potenti. In scelerisque elementum nibh ut tempor.
+			</p>
+
+			<p>
+				Nam et interdum urna. Integer varius est et nunc sagittis volutpat et at dolor. Nam quam urna, blandit eget accumsan et, tincidunt quis dui. Integer rutrum lacinia dolor, eu eleifend lacus vulputate vitae. Suspendisse eros nibh, dignissim ut lobortis eu, ornare in augue. Duis ultrices aliquam nulla congue rutrum. Quisque eu est vel dolor luctus condimentum nec sit amet orci. Ut lorem orci, ullamcorper in fringilla eu, rutrum id lectus. Morbi sit amet enim erat, id lobortis justo.
+			</p>
+
+			<p>
+				Morbi odio lacus, sagittis nec feugiat ac, gravida nec odio. Proin imperdiet ultrices nulla non elementum. Nulla id molestie enim. Ut non felis ligula, vitae tempor urna. Maecenas lorem nibh, ullamcorper eget convallis in, gravida vitae odio. Praesent at mauris dui. Aenean sodales ante vitae mi hendrerit eget malesuada tellus lobortis. Donec facilisis tincidunt ullamcorper. Duis sed orci at risus facilisis consectetur. Aenean nibh neque, blandit vel ullamcorper in, eleifend non ipsum. Curabitur tincidunt
+			</p>
+		</div>
+
+	</div>
+
+	<!--Careers Page-->
+	<div class="careers page hide" id="careers">
+		<div class="contentHeading"><span>Careers at Technovert</span></div>
+		<p class="content">
+			We are looking for smart people who love fiddling with code and pour their heart into it. If you are one, we would like to talk to you. Please fill the form below and we will get back to you.
+		</p>
+		
+		<p class="commonErrorMsg hide">Please fill all the details!</p>
+		<div class="table">
+			<form class="careerForm" name="careerForm" id="careerForm">
+				<div class="row">
+					<span class="cell label">Name</span>
+					<div class="cell inputCell">
+						<input type="text" class="input required" name="name">
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">Email</span>
+					<div class="cell inputCell">
+						<input type="text" class="input required" name="email">
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">Desired Role</span>
+					<div class="cell inputCell">
+						<input type="text" class="input required" name="role">
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">Upload Resume</span>
+					<div class="cell inputCell">
+						<input type="text" class="input required" id="filename" name="txt" readonly>
+						<label for='files' class='button'>Browse..</label>
+						<input id='files' onchange="getFileName()" class='input hidden' type='file' name='file' >
+					</div>
+				</div>
+				<div class="row lastRow">
+					<span class="cell label"></span>
+					<div class="cell inputCell secondCell">
+						<input id='submitCareersForm' onclick="careersFormValidation()" class='button' type='button' name='submitButton' value="Submit">
+					</div>
+				</div>
+			</form>	
+		</div>
+	</div>
+
+	<!--Empty Page-->
+	<div class="empty page hide" id="empty"></div>
+
+
+	<!--Contact Page-->
+	<div class="contact page hide" id="contact">
+		<div class="contentHeading"><span>Contact Us</span></div>
+		<div id="mainError" class="content commonErrorMsg hide">
+			<span>Please fill the all required fields below.</span>
+		</div>
+		<div class="successMsg hide">
+			<span>Thank you for reaching out to us! We will get back to you shortly.</span>
+		</div>
+		<div class="table">
+			<form class="contactForm" name="contactForm" id="contactForm">
+				<div class="row">
+					<span class="cell label">My Name:</span>
+					<div class="cell inputCell">
+						<input type="text" name="name" class="input contactInput requiredField">
+						<span class="required">*</span>
+						<span class="errorMsg hide">Name is required</span>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My Gender:</span>
+					<div class="cell inputCell">
+						<div>
+							<input type="radio" id="Male" onclick="alert('Hello Sir!');" class="contactRadio" name="gender" value="Male">
+							<label for="Male">Male</label>
+						</div>
+						<div>
+							<input type="radio" id="Female" onclick="alert('Hello Madam!');" class="contactRadio" name="gender" value="Female">
+							<label for="Female">Female</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My Email Address:</span>
+					<div class="cell inputCell">
+						<input type="email" id="emailElement" name="email" onchange="validateMail(this)" class="input contactInput requiredField">
+						<span class="required">*</span>
+						<span class="errorMsg hide">MailId is required</span>
+						<span class="emailValidationMsg"></span>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My Telephone Number:</span>
+					<div class="cell inputCell">
+						<input type="tel" name="telphone" class="input contactInput">
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My Organization Name:</span>
+					<div class="cell inputCell">
+						<input type="text" name="org" class="input contactInput requiredField">
+						<span class="required">*</span>
+						<span class="errorMsg hide">Organization Name is required</span>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My City:</span>
+					<div class="cell inputCell">
+						<input type="text" name="city" class="input contactInput">
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My State or Province:</span>
+					<div class="cell inputCell">
+						<select name="state" onclick="setPromoBoxValue()" id="state" class="select contactInput requiredField">
+						<option value="">Select State or Province</option>
+						<option value="Andhra Pradesh">Andhra Pradesh</option>
+						<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="Bihar">Bihar</option>
+						<option value="Chandigarh">Chandigarh</option>
+						<option value="Chhattisgarh">Chhattisgarh</option>
+						<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+						<option value="Daman and Diu">Daman and Diu</option>
+						<option value="Delhi">Delhi</option>
+						<option value="Lakshadweep">Lakshadweep</option>
+						<option value="Puducherry">Puducherry</option>
+						<option value="Goa">Goa</option>
+						<option value="Gujarat">Gujarat</option>
+						<option value="Haryana">Haryana</option>
+						<option value="Himachal Pradesh">Himachal Pradesh</option>
+						<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+						<option value="Jharkhand">Jharkhand</option>
+						<option value="Karnataka">Karnataka</option>
+						<option value="Kerala">Kerala</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+						<option value="Maharashtra">Maharashtra</option>
+						<option value="Manipur">Manipur</option>
+						<option value="Meghalaya">Meghalaya</option>
+						<option value="Mizoram">Mizoram</option>
+						<option value="Nagaland">Nagaland</option>
+						<option value="Odisha">Odisha</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="Telangana">Telangana</option>
+						<option value="Tripura">Tripura</option>
+						<option value="Uttar Pradesh">Uttar Pradesh</option>
+						<option value="Uttarakhand">Uttarakhand</option>
+						<option value="West Bengal">West Bengal</option>
+						</select>
+						<span class="required">*</span>
+						<span class="errorMsg hide">State is required</span>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">Please Contact Me By:</span>
+					<div class="cell inputCell">
+						<div>
+							<input type="radio" id="Email" class="contactRadio" name="preferedContact" value="Email">
+							<label for="Email">Email</label>
+						</div>
+						<div>
+							<input type="radio" id="Phone" class="contactRadio" name="preferedContact" value="Phone">
+							<label for="Phone">Phone</label>
+						</div>
+						<div>
+							<input type="radio" id="Both" class="contactRadio" name="preferedContact" value="Both">
+							<label for="Both">Both</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">Promotion Code:</span>
+					<div class="cell inputCell">
+						<input type="text" name="promoCode" class="input contactInput" id="promoCode">
+					</div>
+				</div>
+				<div class="fullRow">
+					<div class="colspan" colspan="2">
+						<h3 class="subHeading">Optional Information</h3>
+						<i>This information is optional but it helpsus to serve you better.</i>
+					</div>
+				</div>
+				<div class="row">
+					<span class="cell label">My Website Address is:</span>
+					<div class="cell inputCell">
+						<input type="text" name="webAddr" class="input contactInput">
+					</div>
+				</div>
+				<div class="fullRow">
+					<div class="colspan">
+						<p class="label">Tell Us More About Your Organization:</p>
+						<textarea rows="5" cols="60" class="contactInput"></textarea>
+					</div>
+				</div>
+				<div class="fullRow">
+					<div class="colspan">
+						<p class="label">What I'd really like to know is:</p>
+						<textarea rows="5" cols="60" class="contactInput"></textarea>
+					</div>
+				</div>
+				<div class="fullRow">
+					<div class="colspan">
+						<input id='sendButton' type='button' onclick="contactFormValidation()" name='submitButton' value="Send message">
+						<input id='clearForm' onclick="replaceForm()" type='button' name='clearButton' value="Clear Form">
+					</div>
+				</div>
+			</form>
+		</div>		
+	</div>
+</body>
+</html>
