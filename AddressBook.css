@@ -1,0 +1,318 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,500,600,700);
+
+.body {
+	margin: 0;
+}
+.hide{
+	display: none;
+}
+
+.navigationContainer {
+	background-color: rgb(51, 51, 51);
+	display: flex;
+	padding: 0px 12px;
+}
+
+.navigation{
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigationContainer .link {
+	color: #fffff0;
+	font: status-bar;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 4px 12px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: rgb(51, 51, 51);
+	border-left: 4px solid rgb(51, 51, 51);
+	margin-right: 2px;
+	cursor: pointer;
+}
+.navigationContainer .link.active {
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+.navigationContainer .link:hover{
+	background-color: rgb(255, 153, 0);
+	color: black;
+	border-left: 4px solid white;
+}
+
+.navigationContainer .rightChild {
+	margin-right: 12px;
+	margin-left: auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+
+.heading {
+	background-color: rgb(51,153,204);
+	height: 60px;
+	padding: 25px 16px;
+}	
+
+.heading .title{
+	margin: 0px 8px;
+	padding: 0;
+	font-size: 48px;
+	font-family: "Century Gothic";
+	color: white;
+	font-weight: 300;
+}
+
+.page {
+	padding: 12px;
+	font-family: "Open Sans";
+	font-weight: 400;
+}
+
+.home{
+	display: flex;
+}
+.contactsSection{
+	padding: 0px 8px;
+	width: 28%;
+}
+.contactsSection .subHeading{
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.contactsSection .contactTile{
+	border: 1px solid rgb(204, 204, 204);
+	height: 88px;
+	cursor: pointer;
+}
+.contactsSection .contactTile >*{
+	padding: 0px 8px;
+	color: rgb(51, 51, 51);
+}
+.contactsSection .contactDetail{
+	width: 95%;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tooltip {
+  position: relative;
+  width: 100%;
+}
+
+.tooltip .tooltipText {
+  visibility: hidden;
+  width: 50%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  word-wrap: break-word;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  bottom: 100%;
+  left: 25%;
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+}
+
+.contactsSection .contactTile .name{
+	font-size: 28px;
+	font-weight: 300;
+}
+.contactsSection .contactTile .details{
+	padding: 5px 0px 5px 16px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.contactTile.active, .contactTile:hover{
+	background-color: rgb(206, 231, 242);
+	color: black;
+}
+.rightSection{
+	position: relative;
+	width: 72%;
+}
+
+
+.contactDetailsSection{
+	width: 72%;
+	position: absolute;
+	padding: 28px 0px 20px 64px;
+	color: rgb(51, 51, 51);
+
+}
+.contactDetailsSection >*{
+	padding: 8px 0px;
+}
+.contactDetailsSection .contactDetailsHeader{
+	display: flex;
+	width: 80%;
+}
+.contactDetailsSection .contactDetailsHeader .contactDetail{
+	font-weight: 600;
+	font-size: 28px;
+	
+}
+.contactDetailsSection .contactDetail{
+	display: flex;
+	width: 100%;
+}
+.contactDetail .value{
+	display: inline-block;
+	word-wrap: break-word;
+}
+.contactDetailsSection .contactDetailsHeader .options{
+	display: flex;
+	flex-flow: row;
+}
+
+.contactDetailsSection .contactDetailsHeader .options .option{
+	display: flex;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin: auto;
+	padding: 0px 20px;
+}
+.contactDetailsSection .contactDetailsHeader .options .option >*{
+	cursor: pointer;
+}
+.contactDetailsSection .contactDetailsHeader .options .image{
+	height: 16px;
+	padding: 0px 4px;
+}
+
+.contactDetailsSection .contactDetail .detailsSectionLabel{
+	font-size: 16px;
+	margin-right: 4px;
+}
+.contactDetailsSection .contactDetail .address{
+	white-space: pre-wrap;
+}
+.formContainer{
+	position: absolute;
+	z-index: 1;
+    height: fit-content;
+    padding:10px 10px 28px 10px;
+    margin-top: 10px;
+    margin-left: 24px;
+    width: 72%;
+    box-shadow: 0px 0px 12px 5px rgb(155 155 155);
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
+
+}
+.form{
+	width: 80%;
+	padding-top: 10px;
+}
+.formContainer .inputField{
+	width: 100%;
+	display: block;
+	padding: 10px 5px;
+	font-size: 14px;
+}
+.formContainer .cell{
+	padding: 0 15px;
+}
+.formLabel{
+	margin-bottom: 0;
+	font-weight: 700;
+	font-size: 12px;
+}
+.requiredFieldsIndicator{
+	color: red;
+}
+.formContainer .row{
+	display: flex;
+}
+.formContainer .row .cell{
+	width: 50%;
+}
+
+.formContainer .rightChild{
+	width: 20%;
+	float: right;
+	padding-right: 10px;
+}
+.formContainer .rightChild .button{
+	margin-left: 10px;
+	padding: 10px 0px;
+	text-align: center;
+	font-size: 16px;
+	border: none;
+	width: 100%;
+	cursor: pointer;
+}
+.formContainer .rightChild .button:hover{
+	background-color: rgb(220, 220, 220);
+}
+.formContainer .rightChild .submit{
+	background-color: rgb(70, 140, 0);
+	color: white;
+}
+.formContainer .rightChild .submit:hover{
+	background-color: rgb(50, 120, 0);
+}
+
+.formContainer.active{
+	display: block;
+}
+.errorMsg{
+	color: red;
+    font-size: 12px;
+    height: 20px;
+    display: block;
+}
+
+.blur{
+	pointer-events: none;
+}
+.focus{
+	pointer-events: all;
+}
+
+@media(max-width: 768px){
+	.contactDetailsSection .contactDetailsHeader{
+		flex-flow: row wrap;
+	}
+	.contactDetailsSection .contactDetail{
+		flex-flow: row wrap;
+	}
+}
+@media(max-width: 560px){
+	.home{
+		flex-flow: row wrap;
+	}
+	.contactsSection{
+		width: 85%;
+	}
+	.rightSection{
+		width: 90%;
+	}
+	.contactDetailsSection{
+		width: 85%;
+		position: absolute;
+		padding: 20px;
+		color: rgb(51, 51, 51);
+
+	}
+	.formContainer{
+		
+	    margin-top: 24px;
+	    margin-left: 10px;
+	    width: 100%;
+	}
+}
