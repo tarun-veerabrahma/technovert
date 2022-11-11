@@ -1,11 +1,20 @@
-type obj = {
-    [key:string]:string;
+interface obj{
+    [key:string]:string
 };
-type contactObjType ={
-    [key:number]:string;
+interface contactObjType {
+    [key:number]:string
 };
+
 var contacts:contactObjType = {};
-var contactObj:obj = {};
+var contactObj:obj={
+	name:"",
+	email:"",
+	mobile:"",
+	landline:"",
+	website:"",
+	address:""
+};
+
 var uniqueId = 0;
 var contactTileLayout = `<div class="contactTile">
 					<div class="tooltip">
@@ -21,17 +30,15 @@ var contactTileLayout = `<div class="contactTile">
 					</div>
 				</div>`;
 
-type patternObject = {
-    [key: string]:string;
-};
-var validationPatterns:patternObject = {
+
+var validationPatterns:obj = {
 	"name": "^[A-za-z ]{3,}$",
 	"email": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,3}$",
 	"mobile": "^(([\+][(][0-9]{1,3}[)])|([\+][0-9]{1,3}))?( )?[0-9]{10}$",
 	"landline": "^[0-9]{2,4}[(\-) ]?[0-9]{6,8}$",
 	"website": "^(((http|https)://)|(w{3}\.))$",
-	"address": "[0-9A-Za-z\.(\-)\/: \n]+$"
-}
+	"address": "[0-9A-Za-z\.(\-)\/: \n]+$",
+};
 var validationFlag:boolean;
 
 var requiredFieldsIndicator='<span class="requiredFieldsIndicator">*</span>';
@@ -102,11 +109,11 @@ function resetErrorMsgs(elementId:string){
 }
 
 function setContactObj(values:JQuery.NameValuePair[]){
-	contactObj = {};
 	for(let i=0;i<values.length;i++){
 		let key = values[i].name;
 		contactObj[key] = values[i].value;
 	}
+	
 }
 
 function setContactTileValues(contactTile:JQuery<HTMLElement>){
@@ -163,6 +170,7 @@ function changePage(elementId:string){
 
 
 $("#addContact").one("click",markRequiredFields("contactForm"));
+
 function addContact(){
 	var values = $("#contactForm :input").serializeArray();
 	if(formValidation("contactForm")){
@@ -201,9 +209,10 @@ function openEditContactForm(elementId:string){
 
 function deleteContact(){
 	if(confirm("Are you sure, you want to delete this contact")){
-		let id = <string>$(".contactTile.active")[0].getAttribute("id");
-		$(".contactTile.active")[0].remove();
-		delete contacts[id];
+		let id = $(".contactTile.active")[0].getAttribute("id");
+		if(id!=null){
+			$(".contactTile.active")[0].remove();
+		delete contacts[Number(id)];
 		$("#contactDetailsSection").addClass("hide");
 
 		let contactTiles = $("#contactsSection").children(".contactTile");
@@ -221,16 +230,19 @@ function deleteContact(){
 				contactTiles[i-1].click();
 			}
 		}
+		}
+		
 			
 	}
 }
 
 function updateContact(){
 	if(formValidation("contactForm")){
-		let id = <string>$(".contactTile.active")[0].getAttribute("id");
+		let id = $(".contactTile.active")[0].getAttribute("id");
 		let values = $("#contactForm :input").serializeArray();
 		setContactObj(values);
-		contacts[id] = JSON.stringify(contactObj);
+		if(typeof id !=null)
+		contacts[Number(id)] = JSON.stringify(contactObj);
 		closeForm();
 		let contactTile = $(".contactTile.active");
 		setContactTileValues(contactTile);
