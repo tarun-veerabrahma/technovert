@@ -1,5 +1,14 @@
+;
+;
 var contacts = {};
-var contactObj = {};
+var contactObj = {
+    name: "",
+    email: "",
+    mobile: "",
+    landline: "",
+    website: "",
+    address: ""
+};
 var uniqueId = 0;
 var contactTileLayout = "<div class=\"contactTile\">\n\t\t\t\t\t<div class=\"tooltip\">\n\t\t\t\t\t\t<span class=\"contactDetail name\"></span>\n\t\t\t\t\t\t<span class=\"tooltipText\"></span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t<div class=\"tooltip\">\n\t\t\t\t\t\t\t<span class=\"contactDetail email\"></span>\n\t\t\t\t\t\t\t<span class=\"tooltipText\"></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<span class=\"contactDetail mobile\"></span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>";
 var validationPatterns = {
@@ -69,7 +78,6 @@ function resetErrorMsgs(elementId) {
     });
 }
 function setContactObj(values) {
-    contactObj = {};
     for (var i = 0; i < values.length; i++) {
         var key = values[i].name;
         contactObj[key] = values[i].value;
@@ -153,21 +161,23 @@ function openEditContactForm(elementId) {
 function deleteContact() {
     if (confirm("Are you sure, you want to delete this contact")) {
         var id = $(".contactTile.active")[0].getAttribute("id");
-        $(".contactTile.active")[0].remove();
-        delete contacts[id];
-        $("#contactDetailsSection").addClass("hide");
-        var contactTiles = $("#contactsSection").children(".contactTile");
-        if (contactTiles.length >= 1) {
-            for (var i = 0; i < contactTiles.length; i++) {
-                var contactTile = contactTiles[i];
-                var tileId = contactTile.getAttribute("id");
-                if (tileId > id) {
-                    contactTiles[i].click();
-                    break;
+        if (id != null) {
+            $(".contactTile.active")[0].remove();
+            delete contacts[Number(id)];
+            $("#contactDetailsSection").addClass("hide");
+            var contactTiles = $("#contactsSection").children(".contactTile");
+            if (contactTiles.length >= 1) {
+                for (var i = 0; i < contactTiles.length; i++) {
+                    var contactTile = contactTiles[i];
+                    var tileId = contactTile.getAttribute("id");
+                    if (tileId > id) {
+                        contactTiles[i].click();
+                        break;
+                    }
                 }
-            }
-            if (i == contactTiles.length) {
-                contactTiles[i - 1].click();
+                if (i == contactTiles.length) {
+                    contactTiles[i - 1].click();
+                }
             }
         }
     }
@@ -177,7 +187,8 @@ function updateContact() {
         var id = $(".contactTile.active")[0].getAttribute("id");
         var values = $("#contactForm :input").serializeArray();
         setContactObj(values);
-        contacts[id] = JSON.stringify(contactObj);
+        if (typeof id != null)
+            contacts[Number(id)] = JSON.stringify(contactObj);
         closeForm();
         var contactTile = $(".contactTile.active");
         setContactTileValues(contactTile);
